@@ -1,0 +1,20 @@
+/* 
+ * 프로그램명: 자바 기초 문법
+ * 작성자 : 이민종
+ * 작성일 : 20190218
+ * 
+ */
+
+//패키지
+package javase_20190218;
+
+
+//클래스
+public class Program005 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
