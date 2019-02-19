@@ -36,6 +36,10 @@ public class Program009 {
 		int c = 300;
 		
 		
+		//변수 d라는 공간에 400L 이라는 값 저장
+		//변수 d는 long 자료형만큼의 공간(8byte)을 차지한다
+		//long자료형 값은 L 접미사 필요
+		long d = 400L;
 		
 		
 		
