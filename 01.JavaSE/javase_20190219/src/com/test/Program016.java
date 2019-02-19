@@ -1,7 +1,7 @@
 /*
- * ÇÁ·Î±×·¥¸í: ¿¬»êÀÚ
- * ÀÛ¼ºÀÚ : ÀÌ¹ÎÁ¾
- * ÀÛ¼ºÀÏ : 20190219
+ * í”„ë¡œê·¸ëž¨ëª…: ì—°ì‚°ìž
+ * ìž‘ì„±ìž : ì´ë¯¼ì¢…
+ * ìž‘ì„±ì¼ : 20190219
 */
 
 package com.test;
@@ -10,8 +10,8 @@ public class Program016 {
 
 	public static void main(String[] args) {
 		
-		//¿¬»êÀÚ
-		//¸Þ¸ð¸®¿¡ ÀúÀåµÈ ÀÚ·á¿¡ ´ëÇÑ °è»ê °úÁ¤¿¡ ÇÊ¿äÇÑ ±âÈ£
+		//ì—°ì‚°ìž
+		//ë©”ëª¨ë¦¬ì— ì €ìž¥ëœ ìžë£Œì— ëŒ€í•œ ê³„ì‚° ê³¼ì •ì— í•„ìš”í•œ ê¸°í˜¸
 		//1. Arithmetic Operators
 		//2. Relational Operators
 		//3. Bitwise Operators
@@ -20,17 +20,17 @@ public class Program016 {
 		//6. Misc Operators
 		
 		//Assignment Operators
-		//¿¬»ê °á°ú³ª ÃÊ±â°ª µîÀ» Æ¯Á¤ º¯¼ö¿¡ ÀúÀåÇÒ ¶§ »ç¿ëÇÏ´Â ¿¬»êÀÚ
-		//º¯¼ö = °ª ¶Ç´Â ¼ö½Ä;
-		//º¯¼öÀÇ ÀÚ·áÇüÀÇ ¹üÀ§¸¦ ¹þ¾î³ª´Â °ªÀº ÀúÀå ºÒ°¡
+		//ì—°ì‚° ê²°ê³¼ë‚˜ ì´ˆê¸°ê°’ ë“±ì„ íŠ¹ì • ë³€ìˆ˜ì— ì €ìž¥í•  ë•Œ ì‚¬ìš©í•˜ëŠ” ì—°ì‚°ìž
+		//ë³€ìˆ˜ = ê°’ ë˜ëŠ” ìˆ˜ì‹;
+		//ë³€ìˆ˜ì˜ ìžë£Œí˜•ì˜ ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ëŠ” ê°’ì€ ì €ìž¥ ë¶ˆê°€
 		
-		//º¯¼ö ¼±¾ð
+		//ë³€ìˆ˜ ì„ ì–¸
 		int a;
 		
-		//10ÀÌ¶ó´Â °ªÀ» º¯¼ö a¿¡ ÇÒ´ç
+		//10ì´ë¼ëŠ” ê°’ì„ ë³€ìˆ˜ aì— í• ë‹¹
 		a = 10;
 		
-		//»ê¼ú ¿¬»êÀÇ °á°ú°ªÀ» º¯¼ö a¿¡ ÇÒ´ç(µ¤¾î¾²±â)
+		//ì‚°ìˆ  ì—°ì‚°ì˜ ê²°ê³¼ê°’ì„ ë³€ìˆ˜ aì— í• ë‹¹(ë®ì–´ì“°ê¸°)
 		a = a + 10;
 					
 		double b = 10.12;
