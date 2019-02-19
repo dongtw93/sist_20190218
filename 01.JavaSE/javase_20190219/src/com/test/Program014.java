@@ -17,6 +17,7 @@ public class Program014 {
 		//
 		age = age + 7;
 		//
+		//°á°ú: ....
 		System.out.println("Puppy age is : " + age);
 
 	}
