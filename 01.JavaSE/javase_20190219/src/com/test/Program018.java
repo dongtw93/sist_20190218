@@ -6,7 +6,7 @@
 
 package com.test;
 
-public class Program818 {
+public class Program018 {
 
 	public static void main(String[] args) {
 
