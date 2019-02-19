@@ -18,6 +18,7 @@ public class Program024 {
 		
 		//print() - 자료 한 개를 단순 출력. 줄바꿈 미포함.
 		
+			
 		int a = 10, b = 20;
 		
 		System.out.print(a);	
