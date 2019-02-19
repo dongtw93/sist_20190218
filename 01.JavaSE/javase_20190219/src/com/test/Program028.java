@@ -32,9 +32,11 @@ public class Program028 {
 		int sum = 0;
 		double avg = 0.0;
 		
+		
 		//처리 과정
 		sum = 100 + 90 + 78;
 		avg = sum / 3.0;
+		
 		
 		//출력 과정
 		System.out.printf("-----------------%n");
