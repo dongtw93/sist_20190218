@@ -35,8 +35,9 @@ public class Program027 {
 		//출력예)
 		//거스름돈: 1670
 		//500원:3, 100원:1, 50원:1, 10원:2
-		System.out.printf("거스름돈: %d%n500원:%d, 100원:%d, 50원:%d, 10원:%d%n"
-				, a, m500, m100, m50, m10);
+		System.out.printf("거스름돈: %d%n", a);
+		System.out.printf("500원:%d, 100원:%d, 50원:%d, 10원:%d%n"
+				, m500, m100, m50, m10);
 		
 		
 	}
