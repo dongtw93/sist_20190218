@@ -6,7 +6,7 @@
 
 package com.test;
 
-public class Program011 {
+public class Program012 {
 
 	public static void main(String[] args) {
 		
@@ -23,15 +23,15 @@ public class Program011 {
 		//부울- boolean
 		
 		
-		//문자- char
+		//부울- boolean
 		
-		//변수 a라는 공간에 'A' 이라는 값 저장
-		//변수 a는 char 자료형만큼의 공간(2byte)을 차지한다
-		//char 자료형은 작은따옴표(')로 감싼 문자 1개를 의미한다
-		//자바에서는 문자는 유니코드(Unicode)를 사용합니다.
-		char a = 'A';
-		char b = 65;
-		char c = '\uFFFF';
+		//논리값 저장용
+		//true 또는 false 만 사용 가능
+		
+		//변수 a라는 공간에 true 라는 값 저장
+		//변수 a는 boolean 자료형만큼의 공간(1byte)을 차지한다
+		boolean a = true;
+		boolean b = false;
 		
 				
 	}
