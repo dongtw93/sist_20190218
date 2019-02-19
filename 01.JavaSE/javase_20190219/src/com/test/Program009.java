@@ -1,7 +1,7 @@
 /*
- * ÇÁ·Î±×·¥¸í: ÀÚ·áÇü - ±âº» ÀÚ·áÇü
- * ÀÛ¼ºÀÚ : ÀÌ¹ÎÁ¾
- * ÀÛ¼ºÀÏ : 20190219
+ * í”„ë¡œê·¸ëž¨ëª…: ìžë£Œí˜• - ê¸°ë³¸ ìžë£Œí˜•
+ * ìž‘ì„±ìž : ì´ë¯¼ì¢…
+ * ìž‘ì„±ì¼ : 20190219
 */
 
 package com.test;
@@ -10,40 +10,40 @@ public class Program009 {
 
 	public static void main(String[] args) {
 		
-		//ÀÚ·áÇü ±¸ºÐ
-		//1. ±âº» ÀÚ·áÇü(Primitive Data Types)
-		//2. ÂüÁ¶ ÀÚ·áÇü(Reference/Object Data Types)
+		//ìžë£Œí˜• êµ¬ë¶„
+		//1. ê¸°ë³¸ ìžë£Œí˜•(Primitive Data Types)
+		//2. ì°¸ì¡° ìžë£Œí˜•(Reference/Object Data Types)
 		
 
-		//1. ±âº» ÀÚ·áÇü(Primitive Data Types)
-		//Á¤¼ö, ½Ç¼ö, ¹®ÀÚ, ºÎ¿ï(³í¸®°ª)
-		//Á¤¼ö- byte, short, int, long
-		//½Ç¼ö- float, double
-		//¹®ÀÚ- char
-		//ºÎ¿ï- boolean
+		//1. ê¸°ë³¸ ìžë£Œí˜•(Primitive Data Types)
+		//ì •ìˆ˜, ì‹¤ìˆ˜, ë¬¸ìž, ë¶€ìš¸(ë…¼ë¦¬ê°’)
+		//ì •ìˆ˜- byte, short, int, long
+		//ì‹¤ìˆ˜- float, double
+		//ë¬¸ìž- char
+		//ë¶€ìš¸- boolean
 		
 		
-		//Á¤¼ö- byte, short, int, long
+		//ì •ìˆ˜- byte, short, int, long
 		
-		//º¯¼ö a¶ó´Â °ø°£¿¡ 100 ÀÌ¶ó´Â °ª ÀúÀå
-		//º¯¼ö a´Â byte ÀÚ·áÇü¸¸Å­ÀÇ °ø°£(1byte)À» Â÷ÁöÇÑ´Ù
+		//ë³€ìˆ˜ aë¼ëŠ” ê³µê°„ì— 100 ì´ë¼ëŠ” ê°’ ì €ìž¥
+		//ë³€ìˆ˜ aëŠ” byte ìžë£Œí˜•ë§Œí¼ì˜ ê³µê°„(1byte)ì„ ì°¨ì§€í•œë‹¤
 		byte a = 100;
 		
 		
-		//º¯¼ö b¶ó´Â °ø°£¿¡ 200 ÀÌ¶ó´Â °ª ÀúÀå
-		//º¯¼ö b´Â short ÀÚ·áÇü¸¸Å­ÀÇ °ø°£(2byte)À» Â÷ÁöÇÑ´Ù
+		//ë³€ìˆ˜ bë¼ëŠ” ê³µê°„ì— 200 ì´ë¼ëŠ” ê°’ ì €ìž¥
+		//ë³€ìˆ˜ bëŠ” short ìžë£Œí˜•ë§Œí¼ì˜ ê³µê°„(2byte)ì„ ì°¨ì§€í•œë‹¤
 		short b = 200;
 		
 		
-		//º¯¼ö c¶ó´Â °ø°£¿¡ 300 ÀÌ¶ó´Â °ª ÀúÀå
-		//º¯¼ö c´Â int ÀÚ·áÇü¸¸Å­ÀÇ °ø°£(4byte)À» Â÷ÁöÇÑ´Ù
-		//int´Â Á¤¼ö ÀÚ·áÇü Áß¿¡¼­ ±âº» ÀÚ·áÇü 
+		//ë³€ìˆ˜ cë¼ëŠ” ê³µê°„ì— 300 ì´ë¼ëŠ” ê°’ ì €ìž¥
+		//ë³€ìˆ˜ cëŠ” int ìžë£Œí˜•ë§Œí¼ì˜ ê³µê°„(4byte)ì„ ì°¨ì§€í•œë‹¤
+		//intëŠ” ì •ìˆ˜ ìžë£Œí˜• ì¤‘ì—ì„œ ê¸°ë³¸ ìžë£Œí˜• 
 		int c = 300;
 		
 		
-		//º¯¼ö d¶ó´Â °ø°£¿¡ 400L ÀÌ¶ó´Â °ª ÀúÀå
-		//º¯¼ö d´Â long ÀÚ·áÇü¸¸Å­ÀÇ °ø°£(8byte)À» Â÷ÁöÇÑ´Ù
-		//longÀÚ·áÇü °ªÀº L Á¢¹Ì»ç ÇÊ¿ä
+		//ë³€ìˆ˜ dë¼ëŠ” ê³µê°„ì— 400L ì´ë¼ëŠ” ê°’ ì €ìž¥
+		//ë³€ìˆ˜ dëŠ” long ìžë£Œí˜•ë§Œí¼ì˜ ê³µê°„(8byte)ì„ ì°¨ì§€í•œë‹¤
+		//longìžë£Œí˜• ê°’ì€ L ì ‘ë¯¸ì‚¬ í•„ìš”
 		long d = 400L;
 		
 		
