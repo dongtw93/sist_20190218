@@ -15,7 +15,7 @@ public class Program022 {
 		
 		//입력 과정
 		//변수 선언 및 초기값 할당
-		int a = 50, b = 20, c = 70;
+		int a = 20, b = 30, c = 10;
 		int max = 0, min = 0;
 		
 		
@@ -23,7 +23,11 @@ public class Program022 {
 		//변수 a, b, c의 값을 비교 연산
 		//->가장 큰 값은 max 변수에 저장
 		//->가장 작은 값은 min 변수에 저장
-		
+		max = (a > b) ? a : b;
+		max = (max > c) ? max : c;
+
+		min = (a < b) ? a : b;
+		min = (min < c) ? min : c;
 		
 
 		//출력 과정
