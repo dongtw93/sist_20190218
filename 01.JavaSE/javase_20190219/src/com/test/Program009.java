@@ -22,13 +22,18 @@ public class Program009 {
 		//문자- char
 		//부울- boolean
 		
+		
+		//정수- byte, short, int, long
+		
 		//변수 a라는 공간에 100 이라는 값 저장
 		//변수 a는 byte 자료형만큼의 공간(1byte)을 차지한다
 		byte a = 100;
 		
+		
 		//변수 b라는 공간에 200 이라는 값 저장
 		//변수 b는 short 자료형만큼의 공간(2byte)을 차지한다
 		short b = 200;
+		
 		
 		//변수 c라는 공간에 300 이라는 값 저장
 		//변수 c는 int 자료형만큼의 공간(4byte)을 차지한다
@@ -40,7 +45,6 @@ public class Program009 {
 		//변수 d는 long 자료형만큼의 공간(8byte)을 차지한다
 		//long자료형 값은 L 접미사 필요
 		long d = 400L;
-		
 		
 		
 	}
