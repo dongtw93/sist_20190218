@@ -42,8 +42,15 @@ public class Program017 {
 		i = --a;
 		
 		//연산의 결과값을 예상해본다.
-		
-		
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(e);
+		System.out.println(f);
+		System.out.println(g);
+		System.out.println(h);
+		System.out.println(i);
+
 	}
 
 }
