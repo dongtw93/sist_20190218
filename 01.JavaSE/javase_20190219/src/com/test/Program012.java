@@ -1,7 +1,7 @@
 /*
- * ÇÁ·Î±×·¥¸í: ÀÚ·áÇü - ±âº» ÀÚ·áÇü
- * ÀÛ¼ºÀÚ : ÀÌ¹ÎÁ¾
- * ÀÛ¼ºÀÏ : 20190219
+ * í”„ë¡œê·¸ë¨ëª…: ìë£Œí˜• - ê¸°ë³¸ ìë£Œí˜•
+ * ì‘ì„±ì : ì´ë¯¼ì¢…
+ * ì‘ì„±ì¼ : 20190219
 */
 
 package com.test;
@@ -10,26 +10,26 @@ public class Program012 {
 
 	public static void main(String[] args) {
 		
-		//ÀÚ·áÇü ±¸ºĞ
-		//1. ±âº» ÀÚ·áÇü(Primitive Data Types)
-		//2. ÂüÁ¶ ÀÚ·áÇü(Reference/Object Data Types)
+		//ìë£Œí˜• êµ¬ë¶„
+		//1. ê¸°ë³¸ ìë£Œí˜•(Primitive Data Types)
+		//2. ì°¸ì¡° ìë£Œí˜•(Reference/Object Data Types)
 		
 
-		//1. ±âº» ÀÚ·áÇü(Primitive Data Types)
-		//Á¤¼ö, ½Ç¼ö, ¹®ÀÚ, ºÎ¿ï(³í¸®°ª)
-		//Á¤¼ö- byte, short, int, long
-		//½Ç¼ö- float, double
-		//¹®ÀÚ- char
-		//ºÎ¿ï- boolean
+		//1. ê¸°ë³¸ ìë£Œí˜•(Primitive Data Types)
+		//ì •ìˆ˜, ì‹¤ìˆ˜, ë¬¸ì, ë¶€ìš¸(ë…¼ë¦¬ê°’)
+		//ì •ìˆ˜- byte, short, int, long
+		//ì‹¤ìˆ˜- float, double
+		//ë¬¸ì- char
+		//ë¶€ìš¸- boolean
 		
 		
-		//ºÎ¿ï- boolean
+		//ë¶€ìš¸- boolean
 		
-		//³í¸®°ª ÀúÀå¿ë
-		//true ¶Ç´Â false ¸¸ »ç¿ë °¡´É
+		//ë…¼ë¦¬ê°’ ì €ì¥ìš©
+		//true ë˜ëŠ” false ë§Œ ì‚¬ìš© ê°€ëŠ¥
 		
-		//º¯¼ö a¶ó´Â °ø°£¿¡ true ¶ó´Â °ª ÀúÀå
-		//º¯¼ö a´Â boolean ÀÚ·áÇü¸¸Å­ÀÇ °ø°£(1byte)À» Â÷ÁöÇÑ´Ù
+		//ë³€ìˆ˜ aë¼ëŠ” ê³µê°„ì— true ë¼ëŠ” ê°’ ì €ì¥
+		//ë³€ìˆ˜ aëŠ” boolean ìë£Œí˜•ë§Œí¼ì˜ ê³µê°„(1byte)ì„ ì°¨ì§€í•œë‹¤
 		boolean a = true;
 		boolean b = false;
 		
