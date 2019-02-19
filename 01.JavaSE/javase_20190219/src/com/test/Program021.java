@@ -25,16 +25,18 @@ public class Program021 {
 		//-> 100원 갯수 연산 후 m100 변수에 저장
 		//-> 50원 갯수 연산 후 m50 변수에 저장
 		//-> 10원 갯수 연산 후 m10 변수에 저장
-		
-		
+		m500 = a / 500;
+		m100 = (a % 500) / 100;
+		m50 = (a % 500 % 100) / 50;
+		m10 = (a % 500 % 100 % 50) / 10;
 		
 
 		//출력 과정
-		System.out.println(a);
-		System.out.println(m500);
-		System.out.println(m100);
-		System.out.println(m50);
-		System.out.println(m10);
+		System.out.println(a);  //1670
+		System.out.println(m500); //3
+		System.out.println(m100); //1
+		System.out.println(m50); //1
+		System.out.println(m10); //2
 	}
 
 }
