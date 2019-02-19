@@ -1,7 +1,7 @@
 /*
- * ÇÁ·Î±×·¥¸í: ÀÚ·áÇü - º¯¼ö
- * ÀÛ¼ºÀÚ : ÀÌ¹ÎÁ¾
- * ÀÛ¼ºÀÏ : 20190219
+ * í”„ë¡œê·¸ëž¨ëª…: ìžë£Œí˜• - ë³€ìˆ˜
+ * ìž‘ì„±ìž : ì´ë¯¼ì¢…
+ * ìž‘ì„±ì¼ : 20190219
 */
 
 package com.test;
@@ -10,26 +10,26 @@ public class Program013 {
 	
 	public static void main(String[] args) {
 		
-		//º¯¼ö
-		//¸Þ¸ð¸®¿¡ ÀÚ·á¸¦ ÀúÀåÇÒ ¼ö ÀÖ´Â ÀÓ½Ã °ø°£¿¡ ´ëÇÑ º°Äª
-		//Æ¯Á¤ ÀÚ·áÇüÀ» ÁöÁ¤ÇØ¼­ º¯¼ö ¼±¾ð
+		//ë³€ìˆ˜
+		//ë©”ëª¨ë¦¬ì— ìžë£Œë¥¼ ì €ìž¥í•  ìˆ˜ ìžˆëŠ” ìž„ì‹œ ê³µê°„ì— ëŒ€í•œ ë³„ì¹­
+		//íŠ¹ì • ìžë£Œí˜•ì„ ì§€ì •í•´ì„œ ë³€ìˆ˜ ì„ ì–¸
 		//1. Local variables
-		//2. Instance variables -> ÀÚµ¿ ÃÊ±âÈ­ Áö¿ø
-		//3. Class/Static variables -> ÀÚµ¿ ÃÊ±âÈ­ Áö¿ø
+		//2. Instance variables -> ìžë™ ì´ˆê¸°í™” ì§€ì›
+		//3. Class/Static variables -> ìžë™ ì´ˆê¸°í™” ì§€ì›
 		
 
 		//1. Local variables
-		//Æ¯Á¤ ¿µ¿ª(º¯¼ö°¡ ¼±¾ðµÈ ºí·° ³»)¿¡¼­¸¸ È°µ¿ÇÒ ¼ö ÀÖ´Â º¯¼ö
-		//Æ¯Á¤ ¿µ¿ªÀº ¸Þ¼Òµå ºí·°, if ºí·°, for ºí·° µîÀ¸·Î Á¦ÇÑµÈ´Ù.
-		//»ç¿ë Àü¿¡ ÃÊ±âÈ­ ÇÊ¿ä
+		//íŠ¹ì • ì˜ì—­(ë³€ìˆ˜ê°€ ì„ ì–¸ëœ ë¸”ëŸ­ ë‚´)ì—ì„œë§Œ í™œë™í•  ìˆ˜ ìžˆëŠ” ë³€ìˆ˜
+		//íŠ¹ì • ì˜ì—­ì€ ë©”ì†Œë“œ ë¸”ëŸ­, if ë¸”ëŸ­, for ë¸”ëŸ­ ë“±ìœ¼ë¡œ ì œí•œëœë‹¤.
+		//ì‚¬ìš© ì „ì— ì´ˆê¸°í™” í•„ìš”
 		
-		//¸Þ¼Òµå ³»¿¡¼­ ¼±¾ðµÈ °æ¿ì
+		//ë©”ì†Œë“œ ë‚´ì—ì„œ ì„ ì–¸ëœ ê²½ìš°
 		int a = 10;
 		
-		//º¯¼ö aÀÇ °ªÀ» È­¸é¿¡ Ãâ·ÂÇÑ´Ù.
+		//ë³€ìˆ˜ aì˜ ê°’ì„ í™”ë©´ì— ì¶œë ¥í•œë‹¤.
 		System.out.println(a);
 		
-		//ÃÊ±â°ªÀÌ ¾ø´Â º¯¼ö »ç¿ë½Ã ¿À·ù ¹ß»ý
+		//ì´ˆê¸°ê°’ì´ ì—†ëŠ” ë³€ìˆ˜ ì‚¬ìš©ì‹œ ì˜¤ë¥˜ ë°œìƒ
 		//int b;
 		//System.out.println(b);
 		
