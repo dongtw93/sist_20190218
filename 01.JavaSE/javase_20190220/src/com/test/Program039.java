@@ -45,7 +45,13 @@ public class Program039 {
 		// 처리 단계
 		switch (점수판별수식) {
 		case 비교점수:
-			
+		case 비교점수:
+			break;
+		case 비교점수:
+			break;
+		case 비교점수:
+			break;
+		case 비교점수:
 			break;
 		default:
 			break;
