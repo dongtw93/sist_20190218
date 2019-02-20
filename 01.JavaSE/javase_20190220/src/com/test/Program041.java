@@ -17,6 +17,7 @@ public class Program041 {
 		   // Statements
 		}
 		*/
+		//주의) 반복 횟수가 일정한 경우 사용
 		
 		//예를 들어, 1부터 100까지의 수를 순차적으로 연산, 출력
 		for (int a = 1; a <= 100; ++a) {
