@@ -43,6 +43,13 @@ public class Program039 {
 		String result = null;
 		
 		// 처리 단계
+		switch (점수판별수식) {
+		case 비교점수:
+			
+			break;
+		default:
+			break;
+		}
 		
 		
 		// 출력 단계

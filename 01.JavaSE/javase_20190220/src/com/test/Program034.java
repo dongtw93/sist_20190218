@@ -21,7 +21,7 @@ public class Program034 {
 		   // Executes when the Boolean expression is false
 		} 
 		*/
-		
+		//주의) if~else 구문은 삼항연산자로 대체 가능
 		
 		//특정 숫자가 3의 배수인지, 아닌지를 판별해서 두 가지 메시지 출력
 		//출력예)
