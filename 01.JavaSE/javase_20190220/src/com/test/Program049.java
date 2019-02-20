@@ -26,7 +26,18 @@ public class Program049 {
 		asfasdfdwq3rewfesafas
 		*/
 		
-		
-		
+		int count = 5;
+		System.out.printf("출력 횟수:%d%n", count);
+		for (int a = 0; a < count; ++a) {
+			int b = (int)(Math.random() * 50) + 1;
+			int c = 0;
+			while (c < b) {
+				int d = (int)(Math.random() * 26) + 97;
+				System.out.printf("%c", d);
+				++c;
+			}
+			System.out.println();
+		}
+			
 	}
 }
