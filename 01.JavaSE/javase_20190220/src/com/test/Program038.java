@@ -29,6 +29,7 @@ public class Program038 {
 		      // Statements
 		}
 		*/
+		//주의) case 구문은 코드 블럭({})이 없기 때문에 문장을 여러개 배치하지 않는다.
 		
 		// 입력 단계
 		int num = 9;
