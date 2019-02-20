@@ -29,6 +29,9 @@ public class Program039 {
 		      // Statements
 		}
 		*/
+		//주의) case 구문은 코드 블럭({})이 없기 때문에 문장을 여러개 배치하지 않는다.
+
+		
 		//예를 들어,
 		//특정 조건1(점수가 90점 이상) 만족시 'A' 메시지 출력
 		//특정 조건2(점수가 80점 이상) 만족시 'B' 메시지 출력
@@ -37,24 +40,28 @@ public class Program039 {
 		//특정 조건5(점수가 60점 미만) 만족시 'F' 메시지 출력
 
 		// 입력 단계
-		int num = 100;
+		int num = 95;
 		
 		//참조(String) 자료형 변수의 기본 초기값 null
 		String result = null;
 		
 		// 처리 단계
-		switch (점수판별수식) {
-		case 비교점수:
-		case 비교점수:
+		switch (num / 10) {
+		case 10:
+		case 9:
+			result = "A등급";
 			break;
-		case 비교점수:
+		case 8:
+			result = "B등급";
 			break;
-		case 비교점수:
+		case 7:
+			result = "C등급";
 			break;
-		case 비교점수:
+		case 6:
+			result = "D등급";
 			break;
 		default:
-			break;
+			result = "F등급";
 		}
 		
 		
