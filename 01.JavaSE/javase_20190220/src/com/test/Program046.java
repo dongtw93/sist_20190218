@@ -32,7 +32,7 @@ public class Program046 {
 				}
 			}
 		}
-		System.out.printf(" = %d%n", sum);
+		System.out.printf("= %d%n", sum);
 			
 	}
 }
