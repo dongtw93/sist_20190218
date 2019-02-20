@@ -37,8 +37,8 @@ public class Program043 {
 		
 		System.out.printf("구구단:%d%n", a);
 		
-		int b = 1; //1, 2, 3, ... , 9
-		for (; b < 10; ++b) {
+		//1, 2, 3, ... , 9
+		for (int b = 1; b < 10; ++b) {
 			System.out.printf("%d * %d = %d%n", a, b, (a * b));
 		}
 			
