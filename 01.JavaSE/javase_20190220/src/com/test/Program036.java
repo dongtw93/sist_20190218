@@ -33,7 +33,24 @@ public class Program036 {
 		//특정 조건4(점수가 60점 이상) 만족시 'D' 메시지 출력
 		//특정 조건5(점수가 60점 미만) 만족시 'F' 메시지 출력
 		
+		int a = 50;
+		String b = null;
 		
+		if (a >= 90) {
+			b = "A등급";
+		} else if (a >= 80) {
+			b = "B등급";
+		} else if (a >= 70) {
+			b = "C등급";
+		} else if (a >= 60) {
+			b = "D등급";
+		} else {
+			b = "F등급";
+		}
+		
+		// 출력 단계
+		System.out.printf("점수 : %d%n", a);
+		System.out.printf("결과 : %s%n", b);		
 		
 	}
 
