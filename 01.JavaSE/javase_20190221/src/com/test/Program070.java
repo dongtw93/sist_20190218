@@ -61,8 +61,12 @@ public class Program070 {
 					swap = true;
 				}
 			}
+			
+			//System.out.println(java.util.Arrays.toString(arr));
+			
 			if (!swap) break;
 		}
+		System.out.println("----------");
 		System.out.println(java.util.Arrays.toString(arr));
 		
 	}
