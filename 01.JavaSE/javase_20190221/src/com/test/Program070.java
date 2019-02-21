@@ -49,15 +49,19 @@ public class Program070 {
 		*/
 		
 		//n회전. n은 요소 전체 갯수 - 1
+		//주의) 치환이 일어나지 않는 상태가 되면 더 이상 정렬할 필요가 없다
 		int len = arr.length - 1;
 		for (int a = 0; a < len; ++a) {
+			boolean swap = false;
 			for (int b = 0; b < len - a; ++b) {
 				if (arr[b] > arr[b + 1]) {
 					int temp = arr[b + 1];
 					arr[b + 1] = arr[b];
 					arr[b] = temp;
+					swap = true;
 				}
 			}
+			if (!swap) break;
 		}
 		System.out.println(java.util.Arrays.toString(arr));
 		
