@@ -35,9 +35,19 @@ public class Program065 {
 		
 		*/
 		
-		
-		
+		int length = 10;
 
+		for (int i = 1; i < length * 2; ++i) {
+			for (int j = 1; j <= length; ++j) {
+				if (i == j || i + j == length * 2) {
+					System.out.printf("*");
+				} else {
+					System.out.printf("  ");
+				}
+			}
+			System.out.println();
+		}
+		
 	}
 
 }
