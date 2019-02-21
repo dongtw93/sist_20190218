@@ -17,7 +17,7 @@ public class Program068 {
 		
 		//입력 과정 ----------
 		//과목1에 대한 점수
-		int[] java = {100, 80, 90, 50, 60, 0, 0};
+		int[] java = {100, 80, 90, 50, 60, 85, 80, 90, 100, 75, 0, 0};
 	
 		
 		
@@ -30,14 +30,14 @@ public class Program068 {
 			//누적 연산
 			total += java[a];
 		}
-		java[5] = total;
+		java[len - 2] = total;
 		
 		//평균 계산
 		//정수 나눗셈의 단점 
 		//- 소수 이하를 버린다(절삭)
 		//-> 반올림 액션 추가
 		int ave = Math.round(total / (float)(len - 2));
-		java[6] = ave;
+		java[len - 1] = ave;
 		
 		
 		
