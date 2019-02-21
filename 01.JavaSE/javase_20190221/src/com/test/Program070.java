@@ -36,6 +36,8 @@ public class Program070 {
 		}
 		*/
 		
+		//1회전
+		/*
 		for (int b = 0; b < arr.length - 1; ++b) {
 			if (arr[b] > arr[b + 1]) {
 				int temp = arr[b + 1];
@@ -43,8 +45,20 @@ public class Program070 {
 				arr[b] = temp;
 			}
 		}
+		System.out.println(java.util.Arrays.toString(arr));
+		*/
 		
-		//1회전 상태 출력
+		//n회전. n은 요소 전체 갯수 - 1
+		int len = arr.length - 1;
+		for (int a = 0; a < len; ++a) {
+			for (int b = 0; b < len - a; ++b) {
+				if (arr[b] > arr[b + 1]) {
+					int temp = arr[b + 1];
+					arr[b + 1] = arr[b];
+					arr[b] = temp;
+				}
+			}
+		}
 		System.out.println(java.util.Arrays.toString(arr));
 		
 	}
