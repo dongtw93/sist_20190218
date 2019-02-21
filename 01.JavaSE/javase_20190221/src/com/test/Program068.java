@@ -17,11 +17,11 @@ public class Program068 {
 		//과목1에 대한 점수
 		int[] java = {100, 80, 90, 50, 60, 0, 0};
 		
-		int len = java.length;
+		int count = java.length - 2;
 		
 		//총점 계산
 		int total = 0;
-		for (int a = 0; a < len; ++a) {
+		for (int a = 0; a < count; ++a) {
 			//누적 연산
 			total += java[a];
 		}
@@ -31,7 +31,7 @@ public class Program068 {
 		//정수 나눗셈의 단점 
 		//- 소수 이하를 버린다(절삭)
 		//-> 반올림 액션 추가
-		int ave = total / 5;
+		int ave = total / count;
 		java[6] = ave;
 		
 		//점수, 총점, 평균 일괄 출력
