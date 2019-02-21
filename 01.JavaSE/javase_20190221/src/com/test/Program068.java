@@ -31,7 +31,7 @@ public class Program068 {
 		//정수 나눗셈의 단점 
 		//- 소수 이하를 버린다(절삭)
 		//-> 반올림 액션 추가
-		int ave = total / count;
+		int ave = Math.round(total / (float)count);
 		java[6] = ave;
 		
 		//점수, 총점, 평균 일괄 출력
