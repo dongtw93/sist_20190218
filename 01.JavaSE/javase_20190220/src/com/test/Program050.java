@@ -21,8 +21,7 @@ public class Program050 {
 		출력예)
 		Adsfdsf erqwe cvzcvcbc eqggfbsfdh. Asfas dafd aerqwefsd vcxzv. Daefadf daf faef cvzxcv efefaf.
 		*/
-		
-		
+	
 			
 	}
 }
