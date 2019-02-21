@@ -29,7 +29,7 @@ public class Program062 {
 		*/
 		
 		for (int a = 1; a <= 10; ++a) {
-			for (int b = 0; b < a; ++b) {
+			for (int b = 0; b < (11 - a); ++b) {
 				System.out.printf(" %d", b);
 			}
 			System.out.println();
