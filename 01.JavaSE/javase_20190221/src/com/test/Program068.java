@@ -11,7 +11,7 @@ public class Program068 {
 	public static void main(String[] args) {
 		
 		//과목1, 과목2, 과목3의 점수를 저장하는 배열 저장소 준비
-		//각 과목당 인원수는 5명
+		//각 과목당 인원수는 10명
 		//각 과목당 총점, 평균 계산
 
 		
@@ -44,11 +44,11 @@ public class Program068 {
 		//출력 과정 ----------
 		//점수, 총점, 평균 일괄 출력
 		for (int a = 0; a < (len - 2); ++a) {
-			System.out.printf("%d%n", java[a]);
+			System.out.printf("%2d) %5d %5d%n", (a+1), java[a], java[a]);
 		}
-		System.out.println("-------");
+		System.out.println("    ------------");
 		for (int a = (len - 2); a < len; ++a) {
-			System.out.printf("%d%n", java[a]);
+			System.out.printf("    %5d %5d%n", java[a], java[a]);
 		}
 
 	}
