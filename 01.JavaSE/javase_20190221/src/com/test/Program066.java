@@ -35,6 +35,24 @@ public class Program066 {
 		arrayRefVar[idx]
 		
 		*/
+		//주의) idx는 0 부터 시작하고, 배열의 크기를 벗어날 수 없다.
+		//주의) 배열 공간 자동 초기화 지원. 예를 들어, int 자료형 배열인 경우 0으로 초기화.
+		
+		int[] arr = {45, 23, 87};
+		
+		System.out.println(arr[0]); //45
+		System.out.println(arr[1]); //23
+		System.out.println(arr[2]); //87
+		
+		int sum = 0;
+		sum = arr[0] + arr[1] + arr[2];
+		System.out.println(sum); //155
+		
+		//반복문을 이용한 배열 요소 탐색
+		int len = arr.length;
+		for (int a = 0; a < len; ++a) {
+			System.out.println(arr[a]);
+		}
 		
 	}
 
