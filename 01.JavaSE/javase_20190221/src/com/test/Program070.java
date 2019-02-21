@@ -18,7 +18,7 @@ public class Program070 {
 		//-> 석차 알고리즘 구현
 
 		//배열 준비
-		int arr[] ={60, 3, 35, 2, 45, 320, 5};  
+		int arr[] ={60, 3, 35, 2, 45, 293, 5};  
 		
 		//원본 상태 출력
 		System.out.println(java.util.Arrays.toString(arr));
