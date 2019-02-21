@@ -28,8 +28,8 @@ public class Program063 {
 		
 		*/
 		
-		for (int a = 1; a <= 10; ++a) {
-			for (int b = 0; b < a; ++b) {
+		for (int a = 9; a >= 0; --a) {
+			for (int b = a; b >= 0; --b) {
 				System.out.printf(" %d", b);
 			}
 			System.out.println();
