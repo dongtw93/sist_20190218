@@ -44,12 +44,28 @@ public class Program094 {
 						, {80, 1}, {90, 1}, {100, 1}
 						, {75, 1}};
 		
-		//석차 계산 과정 추가
 		
+		//석차 계산 과정 추가
+		int len = sub1.length;
+		//특정 성적
+		for (int a = 0; a < len; ++a) {
+			//나머지 성적들
+			for (int b = 0; b < len; ++b) {
+				//비교 대상이 자기 자신인 경우는 continue
+				//if (a == b) continue;
+				//상대방 점수가 높으면,
+				//나의 석차 +1 연산
+				if (sub1[a][0] < sub1[b][0]) {
+					++sub1[a][1];
+				}
+			}
+		}
 		
 		
 		//과목1에 대한 점수 및 석차 출력
-		
+		for (int a = 0; a < len; ++a) {
+			System.out.printf("%2d) %5d (%2d등)%n", (a+1), sub1[a][0], sub1[a][1]);
+		}
 		
 
 	}
