@@ -51,8 +51,11 @@ public class Program089 {
 		for (int a = 0; a < len; ++a) {
 			//열 접근용 반복문
 			for (int b = 0; b < arr[a].length; ++b) {
+				
+				//2차원 배열의 요소를 1차원 배열의 요소로 복사
 				arr2[c] = arr[a][b];
 				++c;
+				
 			}
 		}
 		
