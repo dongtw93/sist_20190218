@@ -23,6 +23,7 @@ public class Program080 {
 		
 		//석차 계산을 위한 빈 배열 준비
 		//-> 1로 초기화
+		//int[] rank = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 		int[] rank = new int[sub1.length];
 		java.util.Arrays.fill(rank, 1);
 		
