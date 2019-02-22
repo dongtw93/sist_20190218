@@ -34,6 +34,8 @@ public class Program092 {
 		//사본 상태 확인
 		//->원본 상태의 변경이 사본에 영향을 준다.
 		System.out.println(java.util.Arrays.toString(arr2[0]));
+		
+		//->2차원 배열도 깊은 복사할 수 있다.
 	
 		
 	}
