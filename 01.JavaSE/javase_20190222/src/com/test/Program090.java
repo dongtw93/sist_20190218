@@ -22,7 +22,7 @@ public class Program090 {
 		int len = arr.length;
 		
 		for (int a = 0; a < len; ++a) {
-			arr[a] = (int)(Math.random() * 25) + 1;
+			arr[a] = (a+1);
 		}
 		
 		//1차원 배열 요소 출력
@@ -41,13 +41,11 @@ public class Program090 {
 		int c = 0;
 		for (int a = 0; a < row; ++a) {
 			arr2[a] = new int[count];
-			
 			//1차원 배열의 요소를 2차원 배열로 복사
 			for (int b = 0; b < count; ++b) {
 				arr2[a][b] = arr[c];
 				++c;
 			}
-			
 		}
 		
 		//2차원 배열 요소 전체 출력
