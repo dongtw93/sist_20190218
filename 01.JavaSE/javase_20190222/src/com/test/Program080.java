@@ -19,18 +19,21 @@ public class Program080 {
 		
 		//입력 과정 ----------
 		//과목1에 대한 점수
-		int[] java = {100, 80, 90, 50, 60, 85, 80, 90, 100, 75};
-		int[] rank = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+		int[] sub1 = {100, 80, 90, 50, 60, 85, 80, 90, 100, 75};
 		
+		//석차 계산을 위한 빈 배열 준비
+		//-> 1로 초기화
+		int[] rank = new int[sub1.length];
+		java.util.Arrays.fill(rank, 1);
 		
 		
 		//처리 과정 ----------
 		/*
-		if (java[0] < java[1]) {
+		if (sub1[0] < sub1[1]) {
 			++rank[0];
 		}
 		*/
-		int len = java.length;
+		int len = sub1.length;
 		//특정 성적
 		for (int a = 0; a < len; ++a) {
 			//나머지 성적들
@@ -39,7 +42,7 @@ public class Program080 {
 				//if (a == b) continue;
 				//상대방 점수가 높으면,
 				//나의 석차 +1 연산
-				if (java[a] < java[b]) {
+				if (sub1[a] < sub1[b]) {
 					++rank[a];
 				}
 			}
@@ -49,7 +52,7 @@ public class Program080 {
 		
 		//출력 과정 -----------
 		for (int a = 0; a < len; ++a) {
-			System.out.printf("%2d) %5d (%2d등)%n", (a+1), java[a], rank[a]);
+			System.out.printf("%2d) %5d (%2d등)%n", (a+1), sub1[a], rank[a]);
 		}
 
 	}
