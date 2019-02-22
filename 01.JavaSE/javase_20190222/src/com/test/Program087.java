@@ -30,10 +30,17 @@ public class Program087 {
 		
 		
 		//2차원 배열 자료 채우기
-
-		
-		
-		
+		//-> 특정 범위의 숫자(1~25)를 순서대로 채우기
+		int temp = 0;
+		//행 접근용 반복문
+		int len = arr.length;
+		for (int a = 0; a < len; ++a) {
+			//열 접근용 반복문
+			int len_ = arr[a].length;
+			for (int b = a; b < len_; ++b) {
+				arr[a][b] = ++temp;
+			}
+		}
 		
 		
 		//2차원 배열 요소 전체 출력
