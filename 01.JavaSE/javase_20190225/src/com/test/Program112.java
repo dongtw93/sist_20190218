@@ -46,7 +46,8 @@ public class Program112 {
 		java.util.Scanner sc = new java.util.Scanner(System.in);
 
 		//초기값이 없는 2차원 배열 저장소 준비
-		String[][] members = new String[10][3];
+		//주의) 2차원 배열 선언시 1차원 저장소의 크기 지정 생략
+		String[][] members = new String[10][];
 		
 		
 		while (true) {
