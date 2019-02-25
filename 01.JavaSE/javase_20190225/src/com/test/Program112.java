@@ -88,34 +88,40 @@ public class Program112 {
 				
 				//문제) 회원정보입력 코드 구현
 				
-				//이름, 전화번호, 이메일 외부 입력
-				System.out.print("이름>");
-				String name = sc.nextLine();
-				System.out.print("전화번호>");
-				String phone = sc.nextLine();
-				System.out.print("이메일>");
-				String email = sc.nextLine();
+				//배열 저장소 크기와 입력된 인원수 비교 과정 추가
+				if (members.length > cnt) { 
 				
-				System.out.println("회원정보를 입력할까요(0/1)?");
-				int m_ = sc.nextInt();
-				sc.nextLine();
-				
-				if (m_ == 1) {
+					//이름, 전화번호, 이메일 외부 입력
+					System.out.print("이름>");
+					String name = sc.nextLine();
+					System.out.print("전화번호>");
+					String phone = sc.nextLine();
+					System.out.print("이메일>");
+					String email = sc.nextLine();
 					
-					//이름, 전화번호, 이메일 항목 저장용 1차원 배열
-					String[] member = new String[3];
-					member[0] = name;
-					member[1] = phone;
-					member[2] = email;
+					System.out.println("회원정보를 입력할까요(0/1)?");
+					int m_ = sc.nextInt();
+					sc.nextLine();
 					
-					//2차원 배열에 1차원 배열 객체를 저장
-					//2차원 배열의 인덱스 범위는 0 ~ (배열의 크기 - 1)
-					members[cnt] = member;
-					++cnt;
-					
-					System.out.println("회원 정보가 등록되었습니다.");
+					if (m_ == 1) {
+						
+						//이름, 전화번호, 이메일 항목 저장용 1차원 배열
+						String[] member = new String[3];
+						member[0] = name;
+						member[1] = phone;
+						member[2] = email;
+						
+						//2차원 배열에 1차원 배열 객체를 저장
+						//2차원 배열의 인덱스 범위는 0 ~ (배열의 크기 - 1)
+						members[cnt] = member;
+						++cnt;
+						
+						System.out.println("회원 정보가 등록되었습니다.");
+					} else {
+						System.out.println("회원 정보 등록이 취소되었습니다.");
+					}
 				} else {
-					System.out.println("회원 정보 등록이 취소되었습니다.");
+					System.out.println("더 이상의 입력은 안됩니다. 저장소가 꽉찼습니다.");
 				}
 				
 			} 
