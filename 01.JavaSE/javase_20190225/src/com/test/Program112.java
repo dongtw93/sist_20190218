@@ -50,6 +50,7 @@ public class Program112 {
 		String[][] members = new String[10][];
 		
 		//2차원 배열의 인덱싱을 위한 임시변수
+		//->배열 저장소에 채워진 실제 인원수
 		int cnt = 0;
 		
 		while (true) {
@@ -63,7 +64,12 @@ public class Program112 {
 			if (m == 1) {
 				System.out.println("1.회원정보출력");
 				
-				int len = members.length;
+				
+				//length는 배열의 크기
+				//int len = members.length;
+				//cnt는 배열에 실제 채워진 인원수
+				int len = cnt;
+				
 				System.out.println("------------------------");
 				System.out.println("이름 / 전화번호 / 이메일");
 				for (int a = 0; a < len; ++a) {
