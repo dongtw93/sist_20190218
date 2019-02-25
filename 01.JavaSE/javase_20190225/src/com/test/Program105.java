@@ -27,7 +27,7 @@ public class Program105 {
 		//100 90 80, Enter
 		int a = sc.nextInt();  
 		int b = sc.nextInt();  
-		int c = sc.nextInt();  
+		int c = sc.nextInt(); 
 		System.out.println(a);
 		System.out.println(b);
 		System.out.println(c);
