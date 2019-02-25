@@ -43,6 +43,8 @@ public class Program112 {
 		프로그램 종료 
 		*/
 		
+		
+		//주의) Scanner 객체는 프로그램 전체에서 한 번만 new 요청한다
 		java.util.Scanner sc = new java.util.Scanner(System.in);
 
 		//초기값이 없는 2차원 배열 저장소 준비
@@ -127,6 +129,7 @@ public class Program112 {
 			} 
 		}
 		
+		//주의) Scanner 객체 사용 후 명시적인 close() 메소드 요청 필요
 		sc.close();
 		System.out.println("프로그램 종료");
 
