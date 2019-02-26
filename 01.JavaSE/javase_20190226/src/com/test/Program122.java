@@ -87,6 +87,19 @@ public class Program122 {
 		} else {
 			System.out.println("n1, n2는 다른 자료");
 		}
+		//문자열 자체 비교(대소문자 구분 하는 상태)
+		if (n1.compareTo(n2) > 0) {
+			System.out.println("n1이 n2보다 큰 자료");
+		} else {
+			System.out.println("n1이 n2보다 작거나 같은 자료");
+		}
+		//문자열 자체 비교(대소문자 구분 없는 상태)
+		if (n1.compareToIgnoreCase(n2) > 0) {
+			System.out.println("n1이 n2보다 큰 자료");
+		} else {
+			System.out.println("n1이 n2보다 작거나 같은 자료");
+		}
+
 
 	}
 
