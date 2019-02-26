@@ -78,6 +78,18 @@ public class Program120 {
 			if (m == 1) {
 				System.out.println("1.성적정보출력");
 				
+				//전체 성적에 대한 총점 계산 과정 추가
+				
+				//전체 성적에 대한 등수 계산 과정 추가
+				
+				//전체 성적 정보 출력 과정 추가
+				int len = cnt;
+				for (int a = 0; a < len; ++a) {
+					int[] score = scores[a];
+					System.out.printf("%d / %d / %d / %d / %d / %d%n"
+							, score[0], score[1], score[2], score[3], score[4], score[5]);
+				}
+				
 			} else if (m == 2){
 				System.out.println("2.성적정보입력");
 			
