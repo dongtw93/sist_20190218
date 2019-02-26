@@ -56,9 +56,11 @@ public class Program121 {
 		
 		java.util.Scanner sc = new java.util.Scanner(System.in);
 		
-		//2차원 배열 인덱스 운영용 변수
 		//성적 처리를 위한 총 인원수
 		int cnt = 2;
+
+		//2차원 배열 인덱스 운영용 변수
+		int idx = 0;
 
 		//개인정보 출력 액션 테스트용 임시 초기값 지정
 		//개인정보 저장용 2차원 배열
@@ -78,7 +80,7 @@ public class Program121 {
 			int m = sc.nextInt();
 			sc.nextLine();
 			if (m == 0) break;
-			if (m == 1) {
+			if (m == 3) {
 				System.out.println("3.성적정보출력");
 
 				//배열의 성적 정보가 저장된 실제 인원수
@@ -129,7 +131,7 @@ public class Program121 {
 				System.out.printf("과목3：%.1f%n", (sub3Total / (double)len));
 				
 				
-			} else if (m == 2){
+			} else if (m == 4){
 				System.out.println("4.성적정보입력");
 				
 				
@@ -156,8 +158,8 @@ public class Program121 {
 					int[] score = {num, s1, s2, s3, 0, 0};
 					
 					//2차원 배열에 성적 정보 저장
-					scores[cnt] = score;
-					++cnt;
+					scores[idx] = score;
+					++idx;
 					
 					System.out.println("성적정보가 입력되었습니다.");
 				} else {
