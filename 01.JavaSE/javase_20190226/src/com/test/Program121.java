@@ -97,8 +97,61 @@ public class Program121 {
 			if (m == 1) {
 				System.out.println("1.개인정보출력");
 				
+				int len = midx;
+				System.out.println("------------------------");
+				System.out.println("학번 / 이름 / 전화번호 / 이메일");
+				for (int a = 0; a < len; ++a) {
+					//2차원 배열의 요소를 순차적 접근
+					String[] member = members[a];
+					//1차원 배열의 요소를 인덱스 지정 접근
+					System.out.printf("%s / %s / %s / %s%n"
+							, member[0]
+							, member[1]
+							, member[2]
+							, member[3]);
+				}
+				
+				
 			} else if (m == 2) {
 				System.out.println("2.개인정보입력");
+				
+				if (midx <= cnt-1) { 
+					
+					//학번, 이름, 전화번호, 이메일 외부 입력
+					System.out.print("학번>");
+					String mid = sc.nextLine();
+					System.out.print("이름>");
+					String name = sc.nextLine();
+					System.out.print("전화번호>");
+					String phone = sc.nextLine();
+					System.out.print("이메일>");
+					String email = sc.nextLine();
+					
+					System.out.println("개인정보를 입력할까요(0/1)?");
+					int m_ = sc.nextInt();
+					sc.nextLine();
+					
+					if (m_ == 1) {
+						
+						//학번, 이름, 전화번호, 이메일 항목 저장용 1차원 배열
+						String[] member = new String[4];
+						member[0] = mid;
+						member[1] = name;
+						member[2] = phone;
+						member[3] = email;
+						
+						//2차원 배열에 1차원 배열 객체를 저장
+						//2차원 배열의 인덱스 범위는 0 ~ (배열의 크기 - 1)
+						members[midx] = member;
+						++midx;
+						
+						System.out.println("개인 정보가 등록되었습니다.");
+					} else {
+						System.out.println("개인 정보 등록이 취소되었습니다.");
+					}
+				} else {
+					System.out.println("더 이상의 입력은 안됩니다. 저장소가 꽉찼습니다.");
+				}
 				
 			} else if (m == 3) {
 			
@@ -172,36 +225,39 @@ public class Program121 {
 			} else if (m == 4){
 				System.out.println("4.성적정보입력");
 				
-				
-				System.out.print("학번>");
-				int num = sc.nextInt();
-				sc.nextLine();
-				System.out.print("과목1>");
-				int s1 = sc.nextInt();
-				sc.nextLine();
-				System.out.print("과목2>");
-				int s2 = sc.nextInt();
-				sc.nextLine();
-				System.out.print("과목3>");
-				int s3 = sc.nextInt();
-				sc.nextLine();
-				
-				System.out.printf("성적정보를 입력할까요(0/1)?");
-				int m_ = sc.nextInt();
-				sc.nextLine();
-				
-				if (m_ == 1) {
+				if (sidx < midx) {
+					System.out.print("학번>");
+					int num = sc.nextInt();
+					sc.nextLine();
+					System.out.print("과목1>");
+					int s1 = sc.nextInt();
+					sc.nextLine();
+					System.out.print("과목2>");
+					int s2 = sc.nextInt();
+					sc.nextLine();
+					System.out.print("과목3>");
+					int s3 = sc.nextInt();
+					sc.nextLine();
 					
-					//1차원 배열에 성적 정보 저장
-					int[] score = {num, s1, s2, s3, 0, 0};
+					System.out.printf("성적정보를 입력할까요(0/1)?");
+					int m_ = sc.nextInt();
+					sc.nextLine();
 					
-					//2차원 배열에 성적 정보 저장
-					scores[sidx] = score;
-					++sidx;
-					
-					System.out.println("성적정보가 입력되었습니다.");
+					if (m_ == 1) {
+						
+						//1차원 배열에 성적 정보 저장
+						int[] score = {num, s1, s2, s3, 0, 0};
+						
+						//2차원 배열에 성적 정보 저장
+						scores[sidx] = score;
+						++sidx;
+						
+						System.out.println("성적정보가 입력되었습니다.");
+					} else {
+						System.out.println("성적정보 입력이 취소되었습니다.");
+					}
 				} else {
-					System.out.println("성적정보 입력이 취소되었습니다.");
+					System.out.println("더 이상의 입력은 안됩니다. 저장소가 꽉찼습니다.");
 				}
 			
 			} 
