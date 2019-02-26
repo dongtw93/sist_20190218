@@ -51,6 +51,21 @@ public class Program120 {
 
 		
 		java.util.Scanner sc = new java.util.Scanner(System.in);
+		
+		//2차원 배열 저장소 준비
+		int[][] scores = new int[10][];
+		
+		//2차원 배열 인덱스 운영용 변수
+		int cnt = 0;
+		
+		//출력 액션 테스트용 임시 초기값 지정
+		int[] s1 = {1, 100, 100, 100, 0, 0};
+		int[] s2 = {2, 90, 100, 80, 0, 0};
+		int[] s3 = {3, 100, 90, 90, 0, 0};
+		scores[0] = s1;
+		scores[1] = s2;
+		scores[2] = s3;
+		cnt = 3;
 
 		while (true) {
 			System.out.println();
