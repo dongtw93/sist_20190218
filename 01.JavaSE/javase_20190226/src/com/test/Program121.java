@@ -60,13 +60,18 @@ public class Program121 {
 		int cnt = 2;
 
 		//2차원 배열 인덱스 운영용 변수
-		int idx = 0;
+		int midx = 0;
+		int sidx = 0;
 
 		//개인정보 출력 액션 테스트용 임시 초기값 지정
 		//개인정보 저장용 2차원 배열
+		/*
 		String[][] members = {{"100", "hong", "010-1234-1234", "hong@naver.com"}
 							, {"101", "park", "010-5678-5678", "park@test.com"}};
-
+		*/
+		String[][] members = new String[cnt][];
+		
+		
 		//2차원 배열 저장소 준비
 		//성적 정보 저장용 2차원 배열
 		int[][] scores = new int[cnt][];
@@ -80,11 +85,19 @@ public class Program121 {
 			int m = sc.nextInt();
 			sc.nextLine();
 			if (m == 0) break;
-			if (m == 3) {
+		
+			if (m == 1) {
+				System.out.println("1.개인정보출력");
+				
+			} else if (m == 2) {
+				System.out.println("2.개인정보입력");
+				
+			} else if (m == 3) {
+			
 				System.out.println("3.성적정보출력");
 
 				//배열의 성적 정보가 저장된 실제 인원수
-				int len = idx;
+				int len = sidx;
 
 				//전체 성적에 대한 총점 계산 과정 추가
 				for (int a = 0; a < len; ++a) {
@@ -175,8 +188,8 @@ public class Program121 {
 					int[] score = {num, s1, s2, s3, 0, 0};
 					
 					//2차원 배열에 성적 정보 저장
-					scores[idx] = score;
-					++idx;
+					scores[sidx] = score;
+					++sidx;
 					
 					System.out.println("성적정보가 입력되었습니다.");
 				} else {
