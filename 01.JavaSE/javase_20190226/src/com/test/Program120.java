@@ -49,6 +49,29 @@ public class Program120 {
 		
 		*/
 
+		
+		java.util.Scanner sc = new java.util.Scanner(System.in);
+
+		while (true) {
+			System.out.println();
+			System.out.println("--- 성적 처리 ---");
+			System.out.println("1.성적정보출력  2.성적정보입력");
+			System.out.print("선택>");
+			int m = sc.nextInt();
+			sc.nextLine();
+			if (m == 0) break;
+			if (m == 1) {
+				System.out.println("1.성적정보출력");
+				
+			} else if (m == 2){
+				System.out.println("2.성적정보입력");
+			
+			} 
+		}
+		
+		sc.close();
+		System.out.println("프로그램 종료");
+		
 	}
 
 }
