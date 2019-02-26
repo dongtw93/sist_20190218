@@ -84,7 +84,7 @@ public class Program121 {
 				System.out.println("3.성적정보출력");
 
 				//배열의 성적 정보가 저장된 실제 인원수
-				int len = cnt;
+				int len = idx;
 
 				//전체 성적에 대한 총점 계산 과정 추가
 				for (int a = 0; a < len; ++a) {
@@ -108,11 +108,28 @@ public class Program121 {
 				
 				//전체 성적 정보 출력 과정 추가
 				System.out.println("--------------------------------");
-				System.out.println("학번/과목1/과목2/과목3/총점/등수");
+				System.out.println("학번/이름/과목1/과목2/과목3/총점/등수");
 				for (int a = 0; a < len; ++a) {
 					int[] score = scores[a];
-					System.out.printf("%d / %d / %d / %d / %d / %d%n"
-							, score[0], score[1], score[2], score[3], score[4], score[5]);
+					
+					//이름 검색 과정 추가
+					String name = "";
+					//int 자료형 학번 -> String 자료형 학번
+					String num = String.valueOf(score[0]);
+					//개인 정보 저장용 배열 탐색
+					for (int b = 0; b < len; ++b) {
+						//2차원 배열의 요소를 1차원 배열로 변환
+						String[] member = members[b];
+						//학번 일치하는지 비교 연산
+						if (num.equals(member[0])) {
+							//일치하는 학번의 자료 중에서
+							//이름을 임시변수에 저장
+							name = member[1];
+						}
+					}
+					
+					System.out.printf("%d / %s / %d / %d / %d / %d / %d%n"
+							, score[0], name, score[1], score[2], score[3], score[4], score[5]);
 				}
 				
 				
