@@ -64,6 +64,7 @@ public class Program120 {
 		int cnt = 0;
 		
 		//출력 액션 테스트용 임시 초기값 지정
+		/*
 		int[] s1 = {1, 100, 100, 100, 0, 0};
 		int[] s2 = {2, 90, 100, 80, 0, 0};
 		int[] s3 = {3, 100, 90, 90, 0, 0};
@@ -71,7 +72,8 @@ public class Program120 {
 		scores[1] = s2;
 		scores[2] = s3;
 		cnt = 3;
-
+		*/
+		
 		while (true) {
 			System.out.println();
 			System.out.println("--- 성적 처리 ---");
@@ -133,6 +135,38 @@ public class Program120 {
 				
 			} else if (m == 2){
 				System.out.println("2.성적정보입력");
+				
+				
+				System.out.print("학번>");
+				int num = sc.nextInt();
+				sc.nextLine();
+				System.out.print("과목1>");
+				int s1 = sc.nextInt();
+				sc.nextLine();
+				System.out.print("과목2>");
+				int s2 = sc.nextInt();
+				sc.nextLine();
+				System.out.print("과목3>");
+				int s3 = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.printf("성적정보를 입력할까요(0/1)?");
+				int m_ = sc.nextInt();
+				sc.nextLine();
+				
+				if (m_ == 1) {
+					
+					//1차원 배열에 성적 정보 저장
+					int[] score = {num, s1, s2, s3, 0, 0};
+					
+					//2차원 배열에 성적 정보 저장
+					scores[cnt] = score;
+					++cnt;
+					
+					System.out.println("성적정보가 입력되었습니다.");
+				} else {
+					System.out.println("성적정보 입력이 취소되었습니다.");
+				}
 			
 			} 
 		}
