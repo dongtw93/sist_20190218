@@ -81,9 +81,12 @@ public class Program120 {
 				//전체 성적에 대한 총점 계산 과정 추가
 				
 				//전체 성적에 대한 등수 계산 과정 추가
+				//주의) 인원이 추가될 때마다 재계산 필요
 				
 				//전체 성적 정보 출력 과정 추가
 				int len = cnt;
+				System.out.println("--------------------------------");
+				System.out.println("학번/과목1/과목2/과목3/총점/평균");
 				for (int a = 0; a < len; ++a) {
 					int[] score = scores[a];
 					System.out.printf("%d / %d / %d / %d / %d / %d%n"
