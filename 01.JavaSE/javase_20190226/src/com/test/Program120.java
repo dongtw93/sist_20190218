@@ -41,6 +41,11 @@ public class Program120 {
 		1 / 100 / 100 / 100 / 300 / 1
 		2 / 90 / 100 / 80 / 270 / 3
 		...
+		------
+	 　 과목별반평균
+	  　과목1: xxx.x
+	  　과목2: xxx.x
+	  　과목3: xxx.x
 		
 		--- 성적 관리 ---
 		1.성적정보출력  2.성적정보입력
@@ -109,6 +114,22 @@ public class Program120 {
 					System.out.printf("%d / %d / %d / %d / %d / %d%n"
 							, score[0], score[1], score[2], score[3], score[4], score[5]);
 				}
+				
+				
+				//과목별반평균 계산 및 출력
+				int sub1Total = 0, sub2Total = 0, sub3Total = 0;
+				for (int a = 0; a < len; ++a) {
+					int[] score = scores[a];
+					sub1Total += score[1];
+					sub2Total += score[2];
+					sub3Total += score[3];
+				}
+				System.out.println("----------------");
+				System.out.println("과목별반평균");
+				System.out.printf("과목1：%.1f%n", (sub1Total / (double)len));
+				System.out.printf("과목2：%.1f%n", (sub2Total / (double)len));
+				System.out.printf("과목3：%.1f%n", (sub3Total / (double)len));
+				
 				
 			} else if (m == 2){
 				System.out.println("2.성적정보입력");
