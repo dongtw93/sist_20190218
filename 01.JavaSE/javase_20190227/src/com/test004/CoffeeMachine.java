@@ -19,6 +19,50 @@ public class CoffeeMachine {
 	//3.밀크폼 30
 	//4.워터 30
 	
+	int esf = 60;
+	int sm = 30;
+	int mf = 30;
+	int wt = 30;
 	
+	boolean americano() {
+		int esf_ = esf - 2;
+		int wt_ = wt - 3;
+		if (esf_ >= 0 && wt_ >= 0) {
+			esf -= 2;
+			wt -= 3;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	boolean cappuccino() {
+		int esf_ = esf - 2;
+		int sm_ = sm - 1;
+		int mf_ = mf - 2;
+		if (esf_ >= 0 && sm_ >= 0 && mf_ >= 0) {
+			esf -= 2;
+			sm -= 1;
+			mf -= 2;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	boolean cafelatte() {
+		int esf_ = esf - 2;
+		int sm_ = sm - 2;
+		int mf_ = mf - 1;
+		if (esf_ >= 0 && sm_ >= 0 && mf_ >= 0) {
+			esf -= 2;
+			sm -= 2;
+			mf -= 1;
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }
