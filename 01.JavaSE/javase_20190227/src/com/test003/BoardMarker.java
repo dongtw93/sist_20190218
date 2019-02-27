@@ -11,6 +11,7 @@ public class BoardMarker {
 
 	//behavior -> 메소드
 	void write(String msg) {
+		//콘솔 전용 UI
 		System.out.printf("(%s,%s)%s%n",color, thick, msg);
 	}
 	
