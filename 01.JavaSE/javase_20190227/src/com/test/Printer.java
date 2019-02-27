@@ -15,7 +15,7 @@ public class Printer {
 	//메소드 선언시 매개변수를 이용해서
 	//외부에서 자료를 받을 수 있다
 	void print(String msg) {
-		//잉크 양 확인
+		//잉크 양(객체의 내부적인 상태값) 확인
 		if (ink >= 10) {
 			//외부에서 전달될 자료를 화면에 출력
 			System.out.println(msg);
