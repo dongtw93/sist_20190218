@@ -1,4 +1,4 @@
-package com.test;
+package com.test002;
 
 //실생활에 존재하는 대상을 객체 지향적 표현
 //->클래스
