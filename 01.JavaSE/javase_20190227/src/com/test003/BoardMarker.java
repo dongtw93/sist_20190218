@@ -7,6 +7,11 @@ public class BoardMarker {
 
 	//state -> 프로퍼티
 	//behavior -> 메소드
+	String color = "black";
+	String thick = "normal";
 
+	void write(String msg) {
+		System.out.printf("(%s,%s)%s%n",color, thick, msg);
+	}
 	
 }
