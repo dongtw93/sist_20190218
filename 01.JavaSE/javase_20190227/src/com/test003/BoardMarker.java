@@ -10,9 +10,11 @@ public class BoardMarker {
 	String thick = "normal";
 
 	//behavior -> 메소드
-	void write(String msg) {
-		//콘솔 전용 UI
-		System.out.printf("(%s,%s)%s%n",color, thick, msg);
+	String write(String msg) {
+		//return 구문 추가시
+		//메소드 실행 결과를 반환한다
+		//String.format() 은 서식이 지정된 문자열을 반환한다
+		return String.format("(%s,%s)%s",color, thick, msg);
 	}
 	
 }

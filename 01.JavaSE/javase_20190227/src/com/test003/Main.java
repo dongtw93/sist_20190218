@@ -11,8 +11,8 @@ public class Main {
 		System.out.println(bm);
 		
 		//메소드 호출
-		bm.write("Hello, World!");
-		bm.write("Java is an Object-Oriented Language");
+		System.out.println(bm.write("Hello, World!"));
+		System.out.println(bm.write("Java is an Object-Oriented Language"));
 		
 	}
 
