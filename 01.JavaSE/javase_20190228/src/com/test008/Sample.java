@@ -24,9 +24,15 @@ public class Sample {
 	private String name = "hong", phone = "010-1234-1234", email = "hog@test.com";
 	private int age = 20;
 	
+	//private 멤버를 외부에서 접근할 수 있도록 설정한 전용 메소드
 	//getter
 	public String getName() {
+		//this 키워드는 내부 멤버 접근 전용 키워드
+		//->생략 가능
 		return this.name;
+	}
+	public String getPhone() {
+		return this.phone;
 	}
 	
 }
