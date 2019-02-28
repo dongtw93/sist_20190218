@@ -11,6 +11,7 @@ public class Score {
 	"S002" ,90, 80, 90
 	*/
 	
+	
 	private String sid;
 	private int sub1, sub2, sub3;
 	
