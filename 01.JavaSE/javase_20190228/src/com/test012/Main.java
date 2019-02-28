@@ -22,6 +22,7 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
+			
 			System.out.println();
 			System.out.println("-------성적관리-------");
 			System.out.println("1.성적입력 2.성적출력");
