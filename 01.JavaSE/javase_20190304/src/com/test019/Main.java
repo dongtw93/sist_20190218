@@ -10,6 +10,7 @@ public class Main {
 		//메인 메뉴에 대한 메소드 구성
 		Scanner sc = new Scanner(System.in);
 		
+		//서비스 클래스와 연결된 상태
 		Service s = new Service();
 
 		while (true) {
@@ -25,10 +26,11 @@ public class Main {
 			
 			switch (m) {
 			//메뉴메소드 호출시 Scanner 객체를 매개변수를 통해서 전달
+			//입력 관련 액션
 			case 1:	s.menu01(sc); break;
+			//출력 관련 액션
 			case 2:	s.menu02(sc); break;
 			}
-			
 			
 		}
 		
