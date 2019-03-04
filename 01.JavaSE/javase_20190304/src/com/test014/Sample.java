@@ -40,4 +40,23 @@ public class Sample {
 	}
 	
 	
+	//매개 변수는 없고, 반환값이 있는 경우
+	//메소드 선언시 () 안에 매개변수 리스트가 없는 상태
+	//명시적인 반환자료형 선언 필요
+	//반환값과 반환자료형은 일치해야 한다
+	//명시적으로 return 구문 필요
+	public String method3() {
+		return "Hello, World!";
+	}
+	
+	
+	//매개 변수와 반환값이 모두 있는 경우
+	//메소드 선언시 () 안에 매개변수 리스트가 있는 상태
+	//명시적인 반환자료형 선언 필요
+	//반환값과 반환자료형은 일치해야 한다
+	//명시적으로 return 구문 필요
+	public String method04(String msg) {
+		return String.format("message:%s", msg);
+	}
+	
 }

@@ -20,7 +20,19 @@ public class Main {
 		//매개 변수와 대응하는 값은 자료형, 순서, 갯수가 일치해야 한다
 		s.method02("TEST"); //TEST
 		
+		
+		//매개 변수는 없고, 반환값이 있는 경우
+		//반환값이 존재하는 경우 반환값을 전달 받고, 후처리 필요
+		String result1 = s.method3();
+		System.out.println(result1); //Hello, World!
+		
 
+		//매개 변수와 반환값이 모두 있는 경우
+		//메소드 호출시 매개 변수에 대응하는 값 전달 필요
+		//매개 변수와 대응하는 값은 자료형, 순서, 갯수가 일치해야 한다
+		String result2 = s.method04("TEST");
+		System.out.println(result2);
+		
 	}
 
 }
