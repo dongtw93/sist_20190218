@@ -59,4 +59,15 @@ public class Sample {
 		return String.format("message:%s", msg);
 	}
 	
+	//반환값 없는 return 구문 사용
+	public void method05() {
+		for (int a = 0; a <= 100; ++a) {
+			System.out.println("Hello, World!");
+			//메소드 실행 중단 및 반환
+			if (a == 10) return;
+		}
+		//추가 액션 코드 존재
+	}
+	
+	
 }
