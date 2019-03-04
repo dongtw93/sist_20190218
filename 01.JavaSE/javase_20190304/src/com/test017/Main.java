@@ -11,6 +11,10 @@ public class Main {
 		//3 -> 11
 		//...
 		//10 -> 1010
+		
+		Sample s = new Sample();
+		System.out.println(s.bin(10)); //1010
+		System.out.println(s.bin(15)); //1111
 
 	}
 
