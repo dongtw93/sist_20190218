@@ -7,10 +7,17 @@ public class Test {
 		//MemberDAO 클래스에 대한 테스트
 		MemberDAO dao = new MemberDAO();
 		
+		//add() 메소드 테스트
+		//샘플 자료 준비
+		Member m1 = new Member();
+		m1.setMid("M02");
+		m1.setName("park");
+		m1.setPhone("010-4321-7654");
+		m1.setEmail("park@test.com");
+		dao.add(m1);
+		
+		//list() 메소드 테스트
 		Member[] list = dao.list();
-		
-		//System.out.println(java.util.Arrays.toString(list));
-		
 		//배열 탐색을 위한 전용 for문
 		//->향상된 for문
 		for (Member m : list) {
