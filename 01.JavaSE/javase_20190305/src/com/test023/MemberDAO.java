@@ -12,6 +12,10 @@ public class MemberDAO {
 	//인덱스 운영 전용 변수
 	private int idx;
 	
+	//저장소의 여분 확인 전용 메소드
+	public boolean getFull() {
+		return this.idx == this.members.length;
+	}
 	
 	//생성자
 	public MemberDAO() {
