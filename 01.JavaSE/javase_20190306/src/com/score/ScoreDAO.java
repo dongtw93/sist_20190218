@@ -8,6 +8,17 @@ public class ScoreDAO {
 	//인덱스 운영 전용 변수
 	private int idx;
 	
+	//생성자에 의한 초기화
+	public ScoreDAO() {
+		//샘플 자료 준비
+		//매개변수 있는 생성자 호출
+		//초기값이 채워진 객체 생성
+		Score s = new Score("G001", "hong", 100, 100, 100);
+		//배열 저장소에 객체 저장
+		this.scores[idx] = s;
+		++idx;
+	}
+	
 	//(배열)저장소 자료 저장 액션 메소드
 	public void add(Score s) {
 		
