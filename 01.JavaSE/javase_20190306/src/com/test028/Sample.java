@@ -4,6 +4,7 @@ public class Sample {
 	
 	//생성자 오버로딩(Constructor Overloading)
 	//생성자 두 개 이상 존재하는 상태
+	//주의) 생성자 오버로딩은 다양한 경우의 수를 만드는데 한계가 있다.
 
 	//자동 초기화 지원 대상
 	private int a;
