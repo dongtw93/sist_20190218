@@ -18,7 +18,11 @@ public class Sample {
 		this.arr = new int[6];
 		int len = this.arr.length;
 		for (int a = 0; a < len; ++a) {
-			this.arr[a] = r.nextInt(45) + 1;
+			int temp = r.nextInt(45) + 1;
+			
+			//중복 제거 과정 추가
+			
+			this.arr[a] = temp;
 		}
 	}
 	
