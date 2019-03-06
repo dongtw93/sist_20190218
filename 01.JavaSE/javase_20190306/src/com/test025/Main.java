@@ -17,6 +17,9 @@ public class Main {
 		//참조형 멤버
 		System.out.println(s.getC()); //null
 		
+		//Runtime Exception
+		//System.out.println(s.getC().toString()); //NullPointerException
+		
 		//지역변수 초기화
 		int a;
 		//System.out.println(a); //오류. 초기화되지 않은 지역변수 사용
