@@ -107,8 +107,25 @@ public class ScoreService {
 	//3.성적검색 메소드
 	//->서브메뉴
 	public void menu3(Scanner sc) {
-		
-	}	
+		while (true) {
+
+			System.out.println();
+			System.out.println("3.성적정보검색");
+			System.out.println("1.번호기준  2.이름기준");
+			System.out.print("선택>");
+			int m = sc.nextInt();
+			sc.nextLine();
+
+			if (m == 0)
+				break;
+
+			switch (m) {
+			case 1:	this.menu3_1(sc); break;
+			case 2: this.menu3_2(sc); break;
+			}
+
+		}
+	}
 	
 	//3.성적검색/1.번호기준 메소드
 	public void menu3_1(Scanner sc) {
