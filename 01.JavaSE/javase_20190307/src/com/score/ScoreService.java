@@ -129,11 +129,32 @@ public class ScoreService {
 	
 	//3.성적검색/1.번호기준 메소드
 	public void menu3_1(Scanner sc) {
+		String key = "sid";
+		String value = null;
+		
+		//검색 단어를 외부 입력 받는다.
+		//->value 변수에 저장
+		
+		//검색 요청 -> list(key, value)
+		
+		//검색 결과 출력
+		
 		
 	}
 	
 	//3.성적검색/2.이름기준 메소드
 	public void menu3_2(Scanner sc) {
+		String key = "name";
+		String value = null;
+
+		//검색 단어를 외부 입력 받는다.
+		//->value 변수에 저장
+		
+		//검색 요청 -> list(key, value)
+		
+		//검색 결과 출력
+		
+	
 		
 	}
 	

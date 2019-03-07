@@ -59,6 +59,17 @@ public class ScoreDAO {
 	//(배열)저장소 자료 (검색)출력 액션 메소드
 	//메소드 오버로딩
 	public Score[] list(String key, String value) {
+		
+		//석차 계산 진행
+		
+		//사본 배열 준비
+		
+		//검색 진행 -> 결과를 사본 배열에 저장
+		//번호 기준 -> 완전 일치 -> equals()
+		//이름 기준 -> 부분 일치 -> contains()
+		
+		
+		//사본 배열 반환
 		return null;
 	}
 	
