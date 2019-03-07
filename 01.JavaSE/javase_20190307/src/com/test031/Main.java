@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//private 접근제한자 테스트
+		//default 접근제한자 테스트
 		
 		//객체(instance) 생성 + 생성자 호출(객체 초기화)
 		Sample s = new Sample();
