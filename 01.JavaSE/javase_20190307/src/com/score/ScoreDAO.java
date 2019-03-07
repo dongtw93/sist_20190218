@@ -32,7 +32,8 @@ public class ScoreDAO {
 		
 		//외부에서 전달받은 자료(Score 객체)를 (배열)저장소에 저장
 		//인덱스 증가
-		
+		this.scores[idx] = s;
+		++idx;
 		
 	}
 	

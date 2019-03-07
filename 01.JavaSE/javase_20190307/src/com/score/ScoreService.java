@@ -16,19 +16,68 @@ public class ScoreService {
 	public void menu1(Scanner sc) {
 		
 		//저장소 상태 확인
-		
-		//콘솔 입력 액션
-		//번호, 이름, 과목1, 과목2, 과목3
-		
-		//입력 확인 메시지
-		
-		//Model 객체 준비
-		//->Score 객체
-		//->매개변수 생성자 호출
-		
-		//ScoreDAO 객체의 add() 메소드 호출
-		
-		//메시지 출력
+		if (this.dao.getFull()) {
+			//메시지 출력
+			System.out.println("더 이상 입력이 안됩니다. ");
+		} else {
+
+			//콘솔 입력 액션
+			//번호, 이름, 과목1, 과목2, 과목3
+			System.out.print("번호>");
+			String sid = sc.nextLine();
+			System.out.print("이름>");
+			String name = sc.nextLine();
+			
+			//과목점수의 범위를 0~100으로 제한
+			int sub1;
+			while(true) {
+				System.out.print("과목1>");
+				sub1 = sc.nextInt();
+				sc.nextLine();
+				if (sub1 >= 0 && sub1 <= 100) break;
+				System.out.println("과목점수 범위가 아닙니다.");
+			}
+			
+			//과목점수의 범위를 0~100으로 제한
+			int sub2;
+			while(true) {
+				System.out.print("과목2>");
+				sub2 = sc.nextInt();
+				sc.nextLine();
+				if (sub2 >= 0 && sub2 <= 100) break;
+				System.out.println("과목점수 범위가 아닙니다.");
+			}
+
+			//과목점수의 범위를 0~100으로 제한
+			int sub3;
+			while(true) {
+				System.out.print("과목3>");
+				sub3 = sc.nextInt();
+				sc.nextLine();
+				if (sub3 >= 0 && sub3 <= 100) break;
+				System.out.println("과목점수 범위가 아닙니다.");
+			}
+			
+			//입력 확인 메시지
+			System.out.print("성적정보를 입력할까요(0/1)?");
+	        int m_ = sc.nextInt();
+	        sc.nextLine();
+	    
+	        if(m_ == 1){
+	    		//Model 객체 준비
+	    		//->Score 객체
+	    		//->매개변수 생성자 호출
+	    		Score s = new Score(sid, name, sub1, sub2, sub3);
+	    		//ScoreDAO 객체의 add() 메소드 호출
+	    		this.dao.add(s);
+				
+	    		//메시지 출력
+	            System.out.println("성적정보가 입력되었습니다.");
+	        } else {
+	    		//메시지 출력
+	            System.out.println("성적정보 입력이 취소되었습니다.");
+	        }
+		}
 		
 	}
 	
