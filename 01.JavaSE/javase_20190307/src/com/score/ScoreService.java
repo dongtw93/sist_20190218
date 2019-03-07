@@ -15,6 +15,21 @@ public class ScoreService {
 	//1.성적입력 메소드
 	public void menu1(Scanner sc) {
 		
+		//저장소 상태 확인
+		
+		//콘솔 입력 액션
+		//번호, 이름, 과목1, 과목2, 과목3
+		
+		//입력 확인 메시지
+		
+		//Model 객체 준비
+		//->Score 객체
+		//->매개변수 생성자 호출
+		
+		//ScoreDAO 객체의 add() 메소드 호출
+		
+		//메시지 출력
+		
 	}
 	
 	//2.성적출력 메소드

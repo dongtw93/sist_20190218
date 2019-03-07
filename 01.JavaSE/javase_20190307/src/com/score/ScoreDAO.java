@@ -30,6 +30,10 @@ public class ScoreDAO {
 	//(배열)저장소 자료 저장 액션 메소드
 	public void add(Score s) {
 		
+		//외부에서 전달받은 자료(Score 객체)를 (배열)저장소에 저장
+		//인덱스 증가
+		
+		
 	}
 	
 	//(배열)저장소 자료 (전체)출력 액션 메소드
@@ -75,6 +79,8 @@ public class ScoreDAO {
 	
 	//저장소의 여분 확인 전용 메소드
 	public boolean getFull() {
+		//true -> 저장소가 꽉찬 상태
+		//false -> 저장소에 여유가 있는 상태
 		return this.idx == this.scores.length;
 	}
 
