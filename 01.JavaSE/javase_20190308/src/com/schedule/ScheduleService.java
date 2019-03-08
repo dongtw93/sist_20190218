@@ -1,5 +1,7 @@
 package com.schedule;
 
+import java.util.Scanner;
+
 //주메뉴당 메뉴별 액션 클래스
 public class ScheduleService {
 	
@@ -8,9 +10,56 @@ public class ScheduleService {
 		this.dao = new ScheduleDAO();
 	}
 	
+	public void menu1(Scanner sc) {
+		
+	}
 	
+	public void menu2(Scanner sc) {
+		while (true) {
+
+			System.out.println();
+			System.out.println("2.일정 출력 및 검색");
+			System.out.println("1.오늘일정 2.특정일일정 3.특정월일정 4.특정단어포함일정 5.전체일정");
+			System.out.print("선택>");
+			int m = sc.nextInt();
+			sc.nextLine();
+
+			if (m == 0)
+				break;
+
+			switch (m) {
+			case 1:	this.menu2_1(sc); break;
+			case 2: this.menu2_2(sc); break;
+			case 3: this.menu2_3(sc); break;
+			case 4: this.menu2_4(sc); break;
+			case 5: this.menu2_5(sc); break;
+			}
+
+		}		
+	}
+	
+	private void menu2_4(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void menu2_3(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void menu2_2(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void menu2_1(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	//2.일정 출력 및 검색/5.전체일정
-	public void menu2_5() {
+	private void menu2_5(Scanner sc) {
 		//제목 출력
 		System.out.println("2.일정 출력 및 검색/5.전체일정");
 		//ScheduleDAO 객체의 list() 메소드 호출
