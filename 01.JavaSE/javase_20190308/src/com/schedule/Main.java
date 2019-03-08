@@ -4,7 +4,9 @@ package com.schedule;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		ScheduleService s = new ScheduleService();
+		s.menu2_5();
 
 	}
 

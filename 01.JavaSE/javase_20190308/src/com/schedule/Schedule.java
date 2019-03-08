@@ -74,4 +74,5 @@ public class Schedule {
 				, this.sid, this.wdate, this.content);
 	}	
 	
+	
 }
