@@ -18,12 +18,10 @@ public class ScoreDAO {
 		this.scores[idx] = s;
 		++idx;
 		
-		/*
 		this.scores[idx] = new Score("G002", "park", 100, 90, 100);
 		++idx;
 		this.scores[idx] = new Score("G003", "choi", 70, 90, 80);
 		++idx;
-		*/
 		
 	}
 	
@@ -61,16 +59,27 @@ public class ScoreDAO {
 	public Score[] list(String key, String value) {
 		
 		//석차 계산 진행
+		this.rank_();
 		
 		//사본 배열 준비
-		
-		//검색 진행 -> 결과를 사본 배열에 저장
-		//번호 기준 -> 완전 일치 -> equals()
-		//이름 기준 -> 부분 일치 -> contains()
-		
+		int len = this.scores.length;
+		Score[] scores_ = new Score[len];
+		for (int a = 0; a < len; ++a) {
+			
+			Score s = this.scores[a];
+			//배열 요소가 null인 경우는 continue
+			if (s == null) continue;
+			
+			//검색 진행 -> 결과를 사본 배열에 저장
+			//번호 기준 -> 완전 일치 -> equals()
+			//이름 기준 -> 부분 일치 -> contains()
+			if (key.equals("sid") && s.getSid().equals(value)) scores_[a] = this.scores[a];
+			if (key.equals("name") && s.getName().contains(value)) scores_[a] = this.scores[a];
+			
+		}
 		
 		//사본 배열 반환
-		return null;
+		return scores_;
 	}
 	
 	//석차 계산용 메소드

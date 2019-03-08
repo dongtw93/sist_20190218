@@ -2,6 +2,7 @@ package com.score;
 
 import java.util.Scanner;
 
+//주메뉴당 메뉴별 액션
 public class ScoreService {
 
 	//HAS-A 관계 (강한 결합)
@@ -9,8 +10,6 @@ public class ScoreService {
 	public ScoreService() {
 		this.dao = new ScoreDAO();
 	}
-	
-	//주메뉴당 메뉴별 액션
 	
 	//1.성적입력 메소드
 	public void menu1(Scanner sc) {
@@ -134,11 +133,14 @@ public class ScoreService {
 		
 		//검색 단어를 외부 입력 받는다.
 		//->value 변수에 저장
+		System.out.print("검색>");
+		value = sc.nextLine();
 		
 		//검색 요청 -> list(key, value)
+		Score[] list = this.dao.list(key, value);
 		
 		//검색 결과 출력
-		
+		this.print(list);
 		
 	}
 	
@@ -149,18 +151,42 @@ public class ScoreService {
 
 		//검색 단어를 외부 입력 받는다.
 		//->value 변수에 저장
+		System.out.print("검색>");
+		value = sc.nextLine();
 		
 		//검색 요청 -> list(key, value)
+		Score[] list = this.dao.list(key, value);
 		
 		//검색 결과 출력
-		
-	
+		this.print(list);
 		
 	}
 	
-	//출력 포맷 private 메소드
+	//출력 전용 메소드
 	private void print(Score[] list) {
-		
+		System.out.println("---------------------");
+		System.out.println("번호/이름/과목1/과목2/과목3/총점/평균/석차");
+		int count = 0;
+		//사본 배열의 전체 자료 출력
+		for (Score s : list) {
+			//배열 요소가 null인 경우는 continue
+			if (s == null) continue;
+			//성적 정보 출력
+			System.out.printf("%s / %s / %d / %d / %d / %d / %.1f / %d%n", 
+				      s.getSid(),
+				      s.getName(),
+				      s.getSub1(),
+				      s.getSub2(),
+				      s.getSub3(),
+				      s.getTotal(),
+				      s.getAvg_(),
+				      s.getRank_());
+			++count;
+		}
+		//출력 건수가 없는 경우 전용 메시지
+		if (count == 0) System.out.println("검색 결과가 없습니다");
+		//출력 건수 출력
+		System.out.printf("총%d건%n", count);		
 	}
 	
 }
