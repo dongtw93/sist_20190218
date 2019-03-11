@@ -80,8 +80,8 @@ public class ScheduleService {
 		System.out.println("2.일정 출력 및 검색/1.오늘일정");
 
 		//오늘 날짜를 기준으로 검색 진행
-		String now = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
-		Schedule[] list = this.dao.list("yyyy-mm-dd", now);
+		String value = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
+		Schedule[] list = this.dao.list("yyyy-mm-dd", value);
 
 		//출력 전용 메소드 호출
 		this.print(list);
@@ -89,18 +89,42 @@ public class ScheduleService {
 	}
 	
 	private void menu2_2(Scanner sc) {
-		// TODO Auto-generated method stub
-		
+		//제목 출력
+		System.out.println("2.일정 출력 및 검색/2.특정일일정");
+
+		//특정 날짜를 기준으로 검색 진행
+		System.out.print("특정일(yyyy-MM-dd)>");
+		String value = sc.nextLine();
+		Schedule[] list = this.dao.list("yyyy-mm-dd", value);
+
+		//출력 전용 메소드 호출
+		this.print(list);	
 	}
 	
 	private void menu2_3(Scanner sc) {
-		// TODO Auto-generated method stub
-		
+		//제목 출력
+		System.out.println("2.일정 출력 및 검색/3.특정월일정");
+
+		//특정월를 기준으로 검색 진행
+		System.out.print("특정월(yyyy-MM)>");
+		String value = sc.nextLine();
+		Schedule[] list = this.dao.list("yyyy-mm", value);
+
+		//출력 전용 메소드 호출
+		this.print(list);	
 	}
 
 	private void menu2_4(Scanner sc) {
-		// TODO Auto-generated method stub
-		
+		//제목 출력
+		System.out.println("2.일정 출력 및 검색/4.특정단어포함일정");
+
+		//특정단어를 기준으로 검색 진행
+		System.out.print("특정단어>");
+		String value = sc.nextLine();
+		Schedule[] list = this.dao.list("word", value);
+
+		//출력 전용 메소드 호출
+		this.print(list);	
 	}
 	
 

@@ -48,15 +48,14 @@ public class ScheduleDAO {
 			//전체일정 출력인 경우
 			if (key.equals("all")) temp[b] = s;
 			
-			//오늘일정 출력인 경우
-			if (key.equals("yyyy-mm-dd") && value.equals(s.getWdate())) temp[b] = s;
+			//오늘일정 or 특정일 출력인 경우 -> equals()
+			if (key.equals("yyyy-mm-dd") && s.getWdate().equals(value)) temp[b] = s;
 			
-			//특정일 출력인 경우
+			//특정월 출력인 경우 -> contains()
+			if (key.equals("yyyy-mm") && s.getWdate().contains(value)) temp[b] = s;
 			
-			//특정월 출력인 겨우
-			
-			//특정단어포함 출력인 경우
-			
+			//특정단어포함 출력인 경우 -> contains()
+			if (key.equals("word") && s.getContent().contains(value)) temp[b] = s;
 			
 		}
 		
