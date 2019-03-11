@@ -1,5 +1,10 @@
 package com.schedule;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
+import com.test053.Member;
+
 //(배열)저장소 운영 클래스
 public class ScheduleDAO {
 
@@ -37,6 +42,10 @@ public class ScheduleDAO {
 	
 	//일정 검색 및 출력
 	public Schedule[] list(String key, String value) {
+		
+		//정렬 메소드 호출
+		this.sort();
+		
 		//사본 배열 준비
 		Schedule[] temp = new Schedule[this.idx];
 		
@@ -62,5 +71,21 @@ public class ScheduleDAO {
 		//사본 배열 반환
 		return temp;
 	}
+	
+	
+	//정렬 액션 -> private 메소드
+	private void sort() {
+		//객체 단위 정렬 -> 내부적으로 comparable 필요 또는 Comparator 구현 필요
+		Arrays.sort(this.schedules, new Comparator<Schedule>() {
+
+			@Override
+			public int compare(Schedule o1, Schedule o2) {
+				//정렬 기준 제시 -> 양수, 0, 음수가 반환되는 액션
+				return o1.getWdate().compareTo(o2.getWdate());
+			}
+			
+		});		
+	}
+	
 	
 }
