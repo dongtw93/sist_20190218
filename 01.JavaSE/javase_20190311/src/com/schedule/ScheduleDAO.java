@@ -81,6 +81,8 @@ public class ScheduleDAO {
 			@Override
 			public int compare(Schedule o1, Schedule o2) {
 				//정렬 기준 제시 -> 양수, 0, 음수가 반환되는 액션
+				//null값 제외 추가
+				if (o1 == null || o2 == null) return 0;
 				return o1.getWdate().compareTo(o2.getWdate());
 			}
 			
