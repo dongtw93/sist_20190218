@@ -1,5 +1,7 @@
 package com.schedule;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 //주메뉴당 메뉴별 액션 클래스
@@ -67,25 +69,40 @@ public class ScheduleService {
 		}		
 	}
 	
-	private void menu2_4(Scanner sc) {
+	private void menu2_1(Scanner sc) {
+
+		//시스템의 오늘 날짜를 얻는다
+		//->java.time 패키지
+		//->LocalDate 클래스
+		//->YYYY-MM-DD 형식
+
+		//제목 출력
+		System.out.println("2.일정 출력 및 검색/1.오늘일정");
+
+		//오늘 날짜를 기준으로 검색 진행
+		String now = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
+		Schedule[] list = this.dao.list("yyyy-mm-dd", now);
+
+		//출력 전용 메소드 호출
+		this.print(list);
+		
+	}
+	
+	private void menu2_2(Scanner sc) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	private void menu2_3(Scanner sc) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void menu2_2(Scanner sc) {
+	private void menu2_4(Scanner sc) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	private void menu2_1(Scanner sc) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	//2.일정 출력 및 검색/5.전체일정
 	private void menu2_5(Scanner sc) {

@@ -49,6 +49,7 @@ public class ScheduleDAO {
 			if (key.equals("all")) temp[b] = s;
 			
 			//오늘일정 출력인 경우
+			if (key.equals("yyyy-mm-dd") && value.equals(s.getWdate())) temp[b] = s;
 			
 			//특정일 출력인 경우
 			
