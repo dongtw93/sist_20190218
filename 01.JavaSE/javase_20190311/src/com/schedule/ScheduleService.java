@@ -16,25 +16,30 @@ public class ScheduleService {
 		//번호(S001, S002, ...)는 자동 증가 액션 처리 
 		//-> generateSid() 메소드 호출
 		
-    	String sid = this.dao.generateSid();
+		String sid = this.dao.generateSid();
 
-    	System.out.print("날짜(YYYY-MM-DD)>");
-        String wdate = sc.nextLine();
-        
-        System.out.print("내용(200자 이내)>");
-        String content = sc.nextLine();
-        
-        System.out.print("입력할까요(0/1)>");
-        int input = sc.nextInt();
-        sc.nextLine();
-        
-        if(input == 1) {
-            Schedule s1 = new Schedule(sid, wdate, content);
-            this.dao.add(s1);
-            System.out.println("일정이 등록되었습니다.");
-        } else {
-            System.out.println("일정이 등록 취소되었습니다.");
-        }
+		if (sid != null) {
+
+			System.out.print("날짜(YYYY-MM-DD)>");
+			String wdate = sc.nextLine();
+
+			System.out.print("내용(200자 이내)>");
+			String content = sc.nextLine();
+
+			System.out.print("입력할까요(0/1)>");
+			int input = sc.nextInt();
+			sc.nextLine();
+
+			if (input == 1) {
+				Schedule s1 = new Schedule(sid, wdate, content);
+				this.dao.add(s1);
+				System.out.println("일정이 등록되었습니다.");
+			} else {
+				System.out.println("일정이 등록 취소되었습니다.");
+			}
+		} else {
+			System.out.println("일정 등록 불가!");
+		}
 		
 	}
 	
