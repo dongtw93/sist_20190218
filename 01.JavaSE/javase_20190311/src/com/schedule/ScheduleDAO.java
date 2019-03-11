@@ -3,8 +3,6 @@ package com.schedule;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import com.test053.Member;
-
 //(배열)저장소 운영 클래스
 public class ScheduleDAO {
 
