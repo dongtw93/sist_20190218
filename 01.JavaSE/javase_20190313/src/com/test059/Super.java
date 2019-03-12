@@ -1,6 +1,6 @@
 package com.test059;
 
-public class Super {
+public abstract class Super {
 
 	//추상화
 	//추상 : 여러 가지 사물이나 개념에서 공통되는 특성이나 속성 따위를 추출하여 파악하는 작용. 
