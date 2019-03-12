@@ -7,9 +7,13 @@ public class Sample3 {
 	//인터페이스를 이용한 약한 결합 상태를 권장한다
 	
 	//강한 결합
+	
+	//특정 자료형을 가진 객체 변수 선언
 	private Sample1 sample;
-	public Sample3() {
-		this.sample = new Sample1();
+	
+	//특정 자료형의 객체를 외부에서 공급 받는다.
+	public Sample3(Sample1 sample) {
+		this.sample = sample;
 	}
 	
 	//Sample3의 메소드 호출
