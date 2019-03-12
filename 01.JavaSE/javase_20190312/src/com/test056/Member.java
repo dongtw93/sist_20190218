@@ -55,7 +55,6 @@ public class Member implements Comparable<Member> {
 	@Override
 	public int compareTo(Member m) {
 		//정렬 기준 제시 -> 양수, 0, 음수가 반환되는 액션
-		if (m == null) return 0;
 		return this.getName().compareTo(m.getName());
 	}
 

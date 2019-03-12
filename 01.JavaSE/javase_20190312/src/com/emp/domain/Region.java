@@ -1,24 +1,41 @@
 package com.emp.domain;
 
 //자료형 클래스 - 지역정보
-//출력시 지역번호 기준 정렬되도록 지원 -> Comparable 인터페이스 구현 필요
-public class Region implements Comparable<Region> {
+public class Region {
 
 	//지역번호(REG01, REG02, ...), 지역명
+	private String regId, regName;
 	
 	//생성자
+	public Region() {
+	}
+	public Region(String regId, String regName) {
+		this.regId = regId;
+		this.regName = regName;
+	}
 	
 	//getter, setter
-	
-	//toString() 오버라이딩
-	
-	
-	//compareTo() 오버라이딩
-	@Override
-	public int compareTo(Region o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public String getRegId() {
+		return regId;
 	}
 
+	public void setRegId(String regId) {
+		this.regId = regId;
+	}
+
+	public String getRegName() {
+		return regName;
+	}
+
+	public void setRegName(String regName) {
+		this.regName = regName;
+	}
+
+	
+	//toString() 오버라이딩
+	@Override
+	public String toString() {
+		return String.format("%s-%s", this.regId, this.regName);
+	}	
 
 }
