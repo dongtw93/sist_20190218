@@ -17,4 +17,12 @@ public interface Super {
 	//메소드 시그니처만 존재한다
 	public abstract void method();	
 	
+	//인터페이스 특징
+	//1. 자기 자신은 추상적 객체이므로 객체 생성 불가
+	//2. 생성자 존재하지 않는다
+	//3. 메소드 -> 추상 메소드로만 구성
+	//4. 필드 -> static final 로만 구성
+	//5. private 멤버 구성 불가
+	//6. JDK1.8부터는 default 멤버 추가됨
+	
 }
