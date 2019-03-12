@@ -2,7 +2,7 @@ package com.test054;
 
 //인터페이스
 //클래스의 추상적 표현
-//상속 계층 구조에서 부모 역할
+//상속 계층 구조에서 추상적 부모 역할
 public interface Super {
 
 	//추상화
