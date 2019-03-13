@@ -13,7 +13,15 @@ public class EmployeeDAO {
 	
 	public EmployeeDAO() {
 		//샘플 자료 준비
-		
+		//String empId, String empName, String ssn, 
+		//String hiredate, String phone,
+		//String regId, String deptId, String posId, 
+		//int basicpay, int extrapay
+		Employee e = new Employee("EMP001", "hong", "000000-0000000"
+					, "2018-01-01", "010-1234-1234"
+					, "REG01", "DEPT01", "POS01"
+					, 3000000, 1000000);
+		this.employees.add(e);
 	}
 	
 	public List<Employee> list(String key) {
@@ -35,6 +43,18 @@ public class EmployeeDAO {
 				
 				if (key.equals("empId")) {
 					result = o1.getEmpId().compareTo(o2.getEmpId());
+				}
+				if (key.equals("empName")) {
+					result = o1.getEmpName().compareTo(o2.getEmpName());
+				}
+				if (key.equals("regId")) {
+					result = o1.getRegId().compareTo(o2.getRegId());
+				}
+				if (key.equals("deptId")) {
+					result = o1.getDeptId().compareTo(o2.getDeptId());
+				}
+				if (key.equals("posId")) {
+					result = o1.getPosId().compareTo(o2.getPosId());
 				}
 				
 				return result;

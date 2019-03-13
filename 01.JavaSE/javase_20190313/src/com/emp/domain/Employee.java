@@ -138,17 +138,4 @@ public class Employee {
 		return this.basicpay + this.extrapay;
 	}
 
-	@Override
-	public String toString() {
-		//사번/이름/주민번호/입사일/전화번호/지역명/부서명/직위명/기본급/수당/급여
-		return String.format("%s / %s / %s / %s / %s / %s / %s / %s / %,d / %,d / %,d%n"
-				, this.empId, this.empName
-				, this.ssn, this.hiredate
-				, this.phone, this.regName
-				, this.deptName,this.posName
-				, this.basicpay, this.extrapay
-				, this.getPay());
-	}
-	
-
 }

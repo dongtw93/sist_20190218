@@ -3,11 +3,12 @@ package com.emp.service;
 import java.util.List;
 import java.util.Scanner;
 
-import javax.lang.model.element.Element;
-
+import com.emp.dao.EmployeeDAO;
 import com.emp.domain.Employee;
 
 public class EmployeeService {
+	
+	private EmployeeDAO dao = new EmployeeDAO();
 	
 	public void main(Scanner sc) {
 		while (true) {
@@ -63,29 +64,33 @@ public class EmployeeService {
 
 	//직원 관리 v1.0/1.직원관리/2.직원출력/1.사번기준
 	private void menu1_2_1(Scanner sc) {
-
-		
-		
+		List<Employee> list = this.dao.list("empId");
+		System.out.println("직원 관리 v1.0/1.직원관리/2.직원출력/1.사번기준");
+		this.print(list);
 	}
 
 	private void menu1_2_2(Scanner sc) {
-		// TODO Auto-generated method stub
-		
+		List<Employee> list = this.dao.list("empName");
+		System.out.println("직원 관리 v1.0/1.직원관리/2.직원출력/2.이름기준");
+		this.print(list);
 	}
 
 	private void menu1_2_3(Scanner sc) {
-		// TODO Auto-generated method stub
-		
+		List<Employee> list = this.dao.list("regId");
+		System.out.println("직원 관리 v1.0/1.직원관리/2.직원출력/3.지역기준");
+		this.print(list);
 	}
 
 	private void menu1_2_4(Scanner sc) {
-		// TODO Auto-generated method stub
-		
+		List<Employee> list = this.dao.list("deptId");
+		System.out.println("직원 관리 v1.0/1.직원관리/2.직원출력/4.부서기준");
+		this.print(list);	
 	}
 
 	private void menu1_2_5(Scanner sc) {
-		// TODO Auto-generated method stub
-		
+		List<Employee> list = this.dao.list("posId");
+		System.out.println("직원 관리 v1.0/1.직원관리/2.직원출력/5.직위기준");
+		this.print(list);		
 	}
 
 	private void menu1_3(Scanner sc) {
@@ -100,9 +105,19 @@ public class EmployeeService {
 		System.out.println("사번 / 이름 / 주민번호 / 입사일 / 전화번호 / 지역명 / 부서명 / 직위명 / 기본급 / 수당 / 급여");
 		//내용 출력
 		for (Employee e : list) {
-			//사번/이름/..../급여
-			System.out.println(e.toString());
+			//주의)
+			//지역명, 부서명, 직위명 출력시
+			//지역번호, 부서번호, 직위번호를 가지고 
+			//검색 진행 결과를 출력합니다.
+			System.out.printf("%s / %s / %s / %s / %s / %s / %s / %s / %,d / %,d / %,d"
+					, e.getEmpId(), e.getEmpName()
+					, e.getSsn(), e.getHiredate()
+					, e.getPhone(), e.getRegId()
+					, e.getDeptId(), e.getPosId()
+					, e.getBasicpay(), e.getExtrapay()
+					, e.getPay());
 		}
+		System.out.printf("총%d명%n", list.size());
 	}
 	
 }
