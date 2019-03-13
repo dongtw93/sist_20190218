@@ -80,7 +80,7 @@ public class RegionService {
 
 		//제목 출력
 		System.out.println("--------------------------------------------");
-		System.out.println("직원 관리 v1.0/2. 기초 정보 관리/2. 지역 출력");
+		System.out.println("직원 관리 v1.0/2. 기초 정보 관리/1. 지역 관리/2. 지역 출력");
 		List<Region> list = this.dao.list();
 
 		//출력 전용 메소드 호출

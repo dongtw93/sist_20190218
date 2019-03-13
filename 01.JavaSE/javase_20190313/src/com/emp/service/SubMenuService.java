@@ -19,8 +19,8 @@ public class SubMenuService {
 
 			switch (m) {
 			case 1:	new RegionService().main(sc); break;
-			case 2: break;
-			case 3: break;
+			case 2: new DepartmentService().main(sc); break;
+			case 3: new PositionService().main(sc); break;
 			}
 
 		}		
