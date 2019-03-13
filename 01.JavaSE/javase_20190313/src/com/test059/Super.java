@@ -1,5 +1,8 @@
 package com.test059;
 
+//추상 클래스
+//->추상 멤버를 가진 클래스
+//->부모 역할 전용 클래스
 public abstract class Super {
 
 	//추상화
@@ -9,5 +12,18 @@ public abstract class Super {
 	//abstract 키워드
 	//구체적인 액션은 없고, 개념적 표현만 존재 -> 액션 설계
 
+	//일부 메소드가 추상메소드로 구성 -> abstract 키워드
+	//추상 메소드는 구현부({})가 없다
+	//메소드 시그니처만 존재한다
+	//public abstract 키워드 생략 불가
+	public abstract void method1();	
+	
+	//일반 메소드
+	//인스턴스 멤버 -> 객체 생성 후 접근 가능
+	//추상 클래스는 객체 생성 불가 -> 직접적인 접근 불가
+	//자식 객체를 통해서 간접적인 접근 가능
+	public void method2() {
+		System.out.println("부모 역할 클래스의 method2()");
+	}
 	
 }
