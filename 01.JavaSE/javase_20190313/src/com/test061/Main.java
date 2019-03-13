@@ -1,6 +1,8 @@
 package com.test061;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -68,6 +70,14 @@ public class Main {
 		System.out.println(list.get(1)); //30
 		list.set(1, 50);
 		System.out.println(list.get(1)); //50
+		
+		//자료 정렬
+		//기본 자료형이라면 정렬 기준 제시 없어도 가능
+		//사용자 정의 자료형을 정렬하려면 Comparable 또는 Comparator 구현 필요
+		System.out.println(list.toString());
+		Collections.sort(list);
+		System.out.println(list.toString());
+		
 		
 	}
 
