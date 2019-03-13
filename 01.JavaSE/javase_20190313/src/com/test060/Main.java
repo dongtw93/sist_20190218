@@ -1,6 +1,7 @@
 package com.test060;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Main {
@@ -38,7 +39,33 @@ public class Main {
 		System.out.println(list.get(1)); //12.345
 		System.out.println(list.get(2)); //TEST
 	
+		//순차적 접근을 통한 자료 확인
+		//방법1
+		for (int a = 0; a < list.size(); ++a) {
+			System.out.println(list.get(a));
+		}
+		//방법2
+		Iterator it = list.iterator();
+		while(it.hasNext()) {
+			Object o = it.next();
+			System.out.println(o);
+		}
+		//방법3
+		for (Object a : list) {
+			System.out.println(a);
+		}
 		
+		//자료 삭제
+		//->삭제가 진행된 후 자료 이동 발생
+		//->인덱스 변동 발생
+		System.out.println(list.get(1)); //12.345
+		list.remove(0);
+		System.out.println(list.get(1)); //TEST
+		
+		//자료 수정
+		System.out.println(list.get(1)); //TEST
+		list.set(1, "SAMPLE");
+		System.out.println(list.get(1)); //SAMPLE
 		
 	}
 
