@@ -63,7 +63,8 @@ public class EmployeeService {
 
 	//직원 관리 v1.0/1.직원관리/2.직원출력/1.사번기준
 	private void menu1_2_1(Scanner sc) {
-		// TODO Auto-generated method stub
+
+		
 		
 	}
 
