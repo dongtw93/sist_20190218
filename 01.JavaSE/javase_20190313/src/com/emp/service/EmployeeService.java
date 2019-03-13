@@ -109,7 +109,7 @@ public class EmployeeService {
 			//지역명, 부서명, 직위명 출력시
 			//지역번호, 부서번호, 직위번호를 가지고 
 			//검색 진행 결과를 출력합니다.
-			System.out.printf("%s / %s / %s / %s / %s / %s / %s / %s / %,d / %,d / %,d"
+			System.out.printf("%s / %s / %s / %s / %s / %s / %s / %s / %,d / %,d / %,d%n"
 					, e.getEmpId(), e.getEmpName()
 					, e.getSsn(), e.getHiredate()
 					, e.getPhone(), e.getRegId()
