@@ -81,6 +81,7 @@ public class LottoService {
 			int b = sc.nextInt();
 			temp.add(b);
 		}
+		sc.nextLine();
 		
 		System.out.print("당첨확인 등수(1~5>");
 		int m = sc.nextInt();
