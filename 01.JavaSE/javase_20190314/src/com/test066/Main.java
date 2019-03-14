@@ -17,10 +17,10 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Pattern p = Pattern.compile("(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+");
+		Pattern p = Pattern.compile("c[a-z]+");
 		
 		while(true) {
-			System.out.print("임의의 문자열(이메일)>");
+			System.out.print("임의의 문자열(단어)>");
 			String word = sc.nextLine();
 			if (word.equals("q") || word.equals("quit")) break;
 			Matcher m = p.matcher(word);
