@@ -17,7 +17,7 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Pattern p = Pattern.compile("c[a-z]+");
+		Pattern p = Pattern.compile(" c[a-z]+");
 		
 		while(true) {
 			System.out.print("임의의 문자열>");
@@ -26,7 +26,7 @@ public class Main {
 			Matcher m = p.matcher(word);
 			//정규표현식에 맞는 단어를 연속해서 찾기
 			while(m.find()) {
-				System.out.println(m.group());
+				System.out.println(m.group().trim());
 			}
 		}
 		
