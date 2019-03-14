@@ -12,7 +12,9 @@ import java.util.Set;
 public class LottoService {
 	
 	//판매소 고유번호는 멤버변수 또는 상수
+	public static final String LOTTONUM = "L001";
 	
+	private LottoDAO dao = new LottoDAO();
 	
 	//자동 번호 서비스
 	//->매수 입력
@@ -21,10 +23,16 @@ public class LottoService {
 		int count = sc.nextInt();
 		sc.nextLine();
 		
+		System.out.printf("판매소번호:%s%n", LOTTONUM);
 		for (int a = 0; a < count; ++a) {
 			//로또 번호 자동 생성 -> auto() 메소드
+			List<Integer> lotto = this.auto();
+			
 			//저장소에 저장
+			this.dao.add(new Lotto(LOTTONUM, lotto));
+			
 			//발행된 로또 번호 출력
+			System.out.println(lotto.toString());
 		}
 		
 	}
