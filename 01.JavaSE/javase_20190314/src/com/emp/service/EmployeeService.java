@@ -14,11 +14,12 @@ import com.emp.domain.Region;
 
 public class EmployeeService {
 	
-	private EmployeeDAO dao = new EmployeeDAO();
+	private EmployeeDAO dao;
 	private RegionDAO rdao;
 	private DepartmentDAO ddao;
 	private PositionDAO pdao;
-	public EmployeeService(RegionDAO rdao, DepartmentDAO ddao, PositionDAO pdao) {
+	public EmployeeService(EmployeeDAO dao, RegionDAO rdao, DepartmentDAO ddao, PositionDAO pdao) {
+		this.dao = dao;
 		this.rdao = rdao;
 		this.ddao = ddao;
 		this.pdao = pdao;
