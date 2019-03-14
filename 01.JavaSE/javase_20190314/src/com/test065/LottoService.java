@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 //서비스 운영 클래스
 public class LottoService {
@@ -24,6 +26,7 @@ public class LottoService {
 		sc.nextLine();
 		
 		System.out.printf("판매소번호:%s%n", LOTTONUM);
+		System.out.printf("날짜:%s%n", LocalDate.now().format(DateTimeFormatter.ISO_DATE));
 		for (int a = 0; a < count; ++a) {
 			//로또 번호 자동 생성 -> auto() 메소드
 			List<Integer> lotto = this.auto();
