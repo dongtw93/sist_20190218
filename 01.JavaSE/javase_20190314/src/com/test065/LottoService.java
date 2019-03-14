@@ -55,9 +55,51 @@ public class LottoService {
 	
 	//수동 번호 서비스
 	//1~45 범위 내의 6개의 숫자 입력
+	public void menu2(Scanner sc) {
+		
+		List<Integer> temp = new ArrayList<Integer>();
+		System.out.print("수동 번호 입력(n1 n2 n3 n4 n5 n6)>");
+		for (int a = 0; a < 6; ++a) {
+			int b = sc.nextInt();
+			temp.add(b);
+		}
+		
+		System.out.printf("판매소번호:%s%n", LOTTONUM);
+		System.out.printf("날짜:%s%n", LocalDate.now().format(DateTimeFormatter.ISO_DATE));
+		this.dao.add(new Lotto(LOTTONUM, temp));
+		System.out.println(temp.toString());
+		
+	}
 	
 	//당첨자 검색
-	//->당첨번호(5,13,17,29,34,39) 필요
+	//->당첨번호(5 13 17 29 34 39) 필요
 	//->당첨번호 3개 숫자일치 = 5등
+	public void menu3(Scanner sc) {
+		List<Integer> temp = new ArrayList<Integer>();
+		System.out.print("당첨번호(n1 n2 n3 n4 n5 n6)>");
+		for (int a = 0; a < 6; ++a) {
+			int b = sc.nextInt();
+			temp.add(b);
+		}
+		
+		System.out.print("당첨확인 등수(1~5>");
+		int m = sc.nextInt();
+		sc.nextLine();
+		if (m == 5) {
+			List<Lotto> list = this.dao.list(3, temp);
+			for (Lotto l : list) {
+				System.out.println(l.toString());
+			}
+			System.out.printf("총 %d건%n", list.size());
+		}
+	}
+	
+	//히든 메뉴
+	public void hidden() {
+		List<Lotto> list = this.dao.list();
+		for (Lotto l : list) {
+			System.out.println(l.toString());
+		}
+	}
 	
 }
