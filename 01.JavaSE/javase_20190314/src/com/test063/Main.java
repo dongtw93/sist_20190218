@@ -25,7 +25,11 @@ public class Main {
 		//int size()
 		//boolean isEmpty()
 
+		//Set 인터페이스 구현 클래스 HashSet 클래스(제네릭 포함)
+		//제네릭 - 컬렉션에 저장하는 (참조)자료형을 제한하는 기능
 		Set<Integer> set = new HashSet<Integer>();
+		//-> 저장소 크기를 명시적으로 지정하지 않아도 된다
+		//-> 자동 확장 
 		
 		set.add(10); //int -> Integer
 		set.add(new Integer(20)); //Integer
