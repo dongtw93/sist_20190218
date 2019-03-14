@@ -21,14 +21,8 @@ public class Lotto {
 	public String getLid() {
 		return lid;
 	}
-	public void setLid(String lid) {
-		this.lid = lid;
-	}
 	public List<Integer> getLotto() {
 		return lotto;
-	}
-	public void setLotto(List<Integer> lotto) {
-		this.lotto = lotto;
 	}
 	
 	@Override
