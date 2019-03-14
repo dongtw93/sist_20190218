@@ -22,7 +22,7 @@ public class Main {
 		while(true) {
 			System.out.print("임의의 문자열(단어)>");
 			String word = sc.nextLine();
-			if (word.equals("exit")) break;
+			if (word.equals("q") || word.equals("quit")) break;
 			Matcher m = p.matcher(word);
 			//true -> c, cat, cody, count, ...
 			//false -> abstract, bad, c123, cat_
