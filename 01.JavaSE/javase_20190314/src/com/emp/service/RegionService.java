@@ -18,8 +18,8 @@ public class RegionService {
 
 			System.out.println();
 			System.out.println("---------------------------------------------");
-			System.out.println("직원 관리 v1.0/2. 기초 정보 관리/1. 지역 관리");
-			System.out.println("1. 지역 입력  2. 지역 출력");
+			System.out.println("직원 관리 v1.0/2.기초정보관리/1.지역관리");
+			System.out.println("1.지역입력  2.지역출력");
 			System.out.print("선택>");
 			int m = sc.nextInt();
 			sc.nextLine();
@@ -35,7 +35,7 @@ public class RegionService {
 	}
 	
 	
-	//직원 관리 v1.0/2. 기초 정보 관리/1. 지역 관리/1. 지역 입력
+	//직원 관리 v1.0/2.기초정보관리/1.지역관리/1.지역입력
 	private void menu1(Scanner sc) {
 		
 		//외부 입력 항목 결정
@@ -44,7 +44,7 @@ public class RegionService {
 		//-> generateRegId() 메소드 호출
 		
 		System.out.println("----------------------------------------------------------");
-		System.out.println("직원 관리 v1.0/2. 기초 정보 관리/1. 지역 관리/1. 지역 입력");
+		System.out.println("직원 관리 v1.0/2.기초정보관리/1.지역관리/1.지역입력");
 		List<Region> list = this.dao.list();
 		this.print(list);
 
@@ -80,7 +80,7 @@ public class RegionService {
 
 		//제목 출력
 		System.out.println("--------------------------------------------");
-		System.out.println("직원 관리 v1.0/2. 기초 정보 관리/1. 지역 관리/2. 지역 출력");
+		System.out.println("직원 관리 v1.0/2.기초정보관리/1.지역관리/2.지역출력");
 		List<Region> list = this.dao.list();
 
 		//출력 전용 메소드 호출

@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.emp.domain.Department;
+import com.emp.domain.Region;
 
 public class DepartmentDAO {
 	
@@ -18,8 +19,8 @@ public class DepartmentDAO {
 	//생성자
 	public DepartmentDAO() {
 		//샘플 부서 객체 등록
-		Department d = new Department("DEPT01", "개발부");
-		this.departments.add(d);
+		this.departments.add(new Department("DEPT01", "개발부"));
+		this.departments.add(new Department("DEPT02", "마케팅부"));
 	}
 	
 	//번호 자동 증가 메소드
@@ -61,6 +62,18 @@ public class DepartmentDAO {
 
 		//사본 컬렉션 반환
 		return temp;
+	}
+
+	//부서명 검색 메소드
+	//부서번호 제공 -> 부서명 반환
+	public String getDeptName(String deptId) {
+		String deptName = null;
+		for (Department d : this.departments) {
+			if (d.getDeptId().equals(deptId)) {
+				deptName = d.getDeptName();
+			}
+		}
+		return deptName;
 	}
 	
 	

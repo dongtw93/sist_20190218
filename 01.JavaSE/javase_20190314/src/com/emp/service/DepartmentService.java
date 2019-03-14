@@ -9,8 +9,8 @@ import com.emp.domain.Department;
 public class DepartmentService {
 	
 	private DepartmentDAO dao;
-	public DepartmentService() {
-		this.dao = new DepartmentDAO();
+	public DepartmentService(DepartmentDAO ddao) {
+		this.dao = ddao;
 	}
 	
 	public void main(Scanner sc) {
@@ -18,8 +18,8 @@ public class DepartmentService {
 
 			System.out.println();
 			System.out.println("---------------------------------------------");
-			System.out.println("직원 관리 v1.0/2. 기초 정보 관리/2. 부서 관리");
-			System.out.println("1. 부서 입력  2. 부서 출력");
+			System.out.println("직원 관리 v1.0/2.기초정보관리/2.부서관리");
+			System.out.println("1.부서입력  2.부서출력");
 			System.out.print("선택>");
 			int m = sc.nextInt();
 			sc.nextLine();
@@ -44,7 +44,7 @@ public class DepartmentService {
 		//-> generateDeptId() 메소드 호출
 		
 		System.out.println("----------------------------------------------------------");
-		System.out.println("직원 관리 v1.0/2. 기초 정보 관리/2. 부서 관리/1. 부서 입력");
+		System.out.println("직원 관리 v1.0/2.기초정보관리/2.부서관리/1.부서입력");
 		List<Department> list = this.dao.list();
 		this.print(list);
 
@@ -80,7 +80,7 @@ public class DepartmentService {
 
 		//제목 출력
 		System.out.println("--------------------------------------------");
-		System.out.println("직원 관리 v1.0/2. 기초 정보 관리/2. 부서 관리/2. 부서 출력");
+		System.out.println("직원 관리 v1.0/2.기초정보관리/2.부서관리/2.부서출력");
 		List<Department> list = this.dao.list();
 
 		//출력 전용 메소드 호출

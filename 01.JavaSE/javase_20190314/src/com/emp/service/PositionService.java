@@ -9,8 +9,8 @@ import com.emp.domain.Position;
 public class PositionService {
 	
 	private PositionDAO dao;
-	public PositionService() {
-		this.dao = new PositionDAO();
+	public PositionService(PositionDAO pdao) {
+		this.dao = pdao;
 	}
 	
 	public void main(Scanner sc) {
@@ -18,8 +18,8 @@ public class PositionService {
 
 			System.out.println();
 			System.out.println("---------------------------------------------");
-			System.out.println("직원 관리 v1.0/2. 기초 정보 관리/3. 직위 관리");
-			System.out.println("1. 직위 입력  2. 직위 출력");
+			System.out.println("직원 관리 v1.0/2.기초정보관리/3.직위관리");
+			System.out.println("1.직위입력  2.직위출력");
 			System.out.print("선택>");
 			int m = sc.nextInt();
 			sc.nextLine();
@@ -35,7 +35,7 @@ public class PositionService {
 	}
 	
 	
-	//직원 관리 v1.0/2. 기초 정보 관리/3. 직위 관리/1. 직위 입력
+	//직원 관리 v1.0/2.기초정보관리/3.직위관리/1.직위입력
 	private void menu1(Scanner sc) {
 		
 		//외부 입력 항목 결정
@@ -44,7 +44,7 @@ public class PositionService {
 		//-> generatePosId() 메소드 호출
 		
 		System.out.println("----------------------------------------------------------");
-		System.out.println("직원 관리 v1.0/2. 기초 정보 관리/3. 직위 관리/1. 직위 입력");
+		System.out.println("직원 관리 v1.0/2.기초정보관리/3.직위관리/1.직위입력");
 		List<Position> list = this.dao.list();
 		this.print(list);
 
@@ -80,12 +80,12 @@ public class PositionService {
 		
 	}
 	
-	//직원 관리 v1.0/2. 기초 정보 관리/3. 직위 관리/2. 직위 출력
+	//직원 관리 v1.0/2.기초정보관리/3.직위관리/2.직위출력
 	private void menu2() {
 
 		//제목 출력
 		System.out.println("--------------------------------------------");
-		System.out.println("직원 관리 v1.0/2. 기초 정보 관리/3. 직위 관리/2. 직위 출력");
+		System.out.println("직원 관리 v1.0/2.기초정보관리/3.직위관리/2.직위출력");
 		List<Position> list = this.dao.list();
 
 		//출력 전용 메소드 호출

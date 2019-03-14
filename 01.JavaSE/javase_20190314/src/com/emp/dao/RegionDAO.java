@@ -18,8 +18,8 @@ public class RegionDAO {
 	//생성자
 	public RegionDAO() {
 		//샘플 지역 객체 등록
-		Region r = new Region("REG01", "서울");
-		this.regions.add(r);
+		this.regions.add(new Region("REG01", "서울"));
+		this.regions.add(new Region("REG02", "인천"));
 	}
 	
 	//번호 자동 증가 메소드

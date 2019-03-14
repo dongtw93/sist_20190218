@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.emp.domain.Department;
 import com.emp.domain.Position;
 
 public class PositionDAO {
@@ -18,8 +19,8 @@ public class PositionDAO {
 	//생성자
 	public PositionDAO() {
 		//샘플 직위 객체 등록
-		Position p = new Position("POS01", "팀장", 3000000);
-		this.positions.add(p);
+		this.positions.add(new Position("POS01", "팀장", 3000000));
+		this.positions.add(new Position("POS02", "사원", 2000000));
 	}
 	
 	//번호 자동 증가 메소드
@@ -63,5 +64,15 @@ public class PositionDAO {
 		return temp;
 	}
 	
-	
+	//직위명 검색 메소드
+	//직위번호 제공 -> 직위명 반환
+	public String getPosName(String posId) {
+		String posName = null;
+		for (Position p : this.positions) {
+			if (p.getPosId().equals(posId)) {
+				posName = p.getPosName();
+			}
+		}
+		return posName;
+	}
 }

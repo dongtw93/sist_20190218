@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.emp.domain.Department;
 import com.emp.domain.Employee;
 
 public class EmployeeDAO {
@@ -15,12 +16,33 @@ public class EmployeeDAO {
 		//샘플 자료 준비
 		//String empId, String empName, String ssn, 
 		//String hiredate, String phone,
-		//String regId, String deptId, String posId, 
+		//String regId, String regName
+		//String deptId, String deptName
+		//String posId, String posName
 		//int basicpay, int extrapay
 		Employee e = new Employee("EMP001", "hong", "000000-0000000"
 					, "2018-01-01", "010-1234-1234"
-					, "REG01", "DEPT01", "POS01"
+					, "REG01", "서울"
+					, "DEPT01", "개발부"
+					, "POS01", "팀장"
 					, 3000000, 1000000);
+		this.employees.add(e);
+	}
+	
+	//번호 자동 증가 메소드
+	public String generateEmpId() {
+		String result = null;
+		int temp = this.employees.size() + 1;
+		if (temp <= 999) {
+			result = String.format("EMP%03d", temp);
+		}
+		return result; //EMP001, EMP002, ..., EMP999
+	}
+	
+	//직원 객체 추가
+	public void add(Employee e) {
+		//외부에서 전달된 직원 객체 등록
+		//->저장소 크기가 자동 증가
 		this.employees.add(e);
 	}
 	
@@ -47,14 +69,14 @@ public class EmployeeDAO {
 				if (key.equals("empName")) {
 					result = o1.getEmpName().compareTo(o2.getEmpName());
 				}
-				if (key.equals("regId")) {
-					result = o1.getRegId().compareTo(o2.getRegId());
+				if (key.equals("regName")) {
+					result = o1.getRegName().compareTo(o2.getRegName());
 				}
-				if (key.equals("deptId")) {
-					result = o1.getDeptId().compareTo(o2.getDeptId());
+				if (key.equals("deptName")) {
+					result = o1.getDeptName().compareTo(o2.getDeptName());
 				}
-				if (key.equals("posId")) {
-					result = o1.getPosId().compareTo(o2.getPosId());
+				if (key.equals("posName")) {
+					result = o1.getPosName().compareTo(o2.getPosName());
 				}
 				
 				return result;
@@ -79,7 +101,22 @@ public class EmployeeDAO {
 					&& e.getEmpId().equals(value)) {	
 				temp.add(e);
 			}
-		
+			if (key.equals("empName") 
+					&& e.getEmpName().equals(value)) {	
+				temp.add(e);
+			}
+			if (key.equals("regName") 
+					&& e.getRegName().contains(value)) {	
+				temp.add(e);
+			}
+			if (key.equals("deptName") 
+					&& e.getDeptName().contains(value)) {	
+				temp.add(e);
+			}
+			if (key.equals("posName") 
+					&& e.getPosName().contains(value)) {	
+				temp.add(e);
+			}
 		}
 		
 		//사본 컬렉션 정렬

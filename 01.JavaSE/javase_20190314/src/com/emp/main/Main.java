@@ -2,6 +2,8 @@ package com.emp.main;
 
 import java.util.Scanner;
 
+import com.emp.dao.DepartmentDAO;
+import com.emp.dao.PositionDAO;
 import com.emp.dao.RegionDAO;
 import com.emp.service.EmployeeService;
 import com.emp.service.SubMenuService;
@@ -15,6 +17,8 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		RegionDAO rdao = new RegionDAO();
+		DepartmentDAO ddao = new DepartmentDAO();
+		PositionDAO pdao = new PositionDAO();
 
 		while (true) {
 
@@ -31,9 +35,9 @@ public class Main {
 			switch (m) {
 			// 메뉴메소드 호출시 Scanner 객체를 매개변수를 통해서 전달
 			// 직원관리 서브메뉴
-			case 1: new EmployeeService(rdao).main(sc); break;
+			case 1: new EmployeeService(rdao, ddao, pdao).main(sc); break;
 			// 기초정보관리 서브메뉴
-			case 2: new SubMenuService(rdao).main(sc); break;
+			case 2: new SubMenuService(rdao, ddao, pdao).main(sc); break;
 			}
 			
 		}
