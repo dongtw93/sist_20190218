@@ -63,6 +63,7 @@ public class LottoService {
 			int b = sc.nextInt();
 			temp.add(b);
 		}
+		sc.nextLine();
 		
 		System.out.printf("판매소번호:%s%n", LOTTONUM);
 		System.out.printf("날짜:%s%n", LocalDate.now().format(DateTimeFormatter.ISO_DATE));
