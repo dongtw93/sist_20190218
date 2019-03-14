@@ -11,7 +11,10 @@ import com.emp.domain.Region;
 public class EmployeeService {
 	
 	private EmployeeDAO dao = new EmployeeDAO();
-	private RegionDAO rdao = new RegionDAO();
+	private RegionDAO rdao;
+	public EmployeeService(RegionDAO rdao) {
+		this.rdao = rdao;
+	}
 	
 	public void main(Scanner sc) {
 		while (true) {

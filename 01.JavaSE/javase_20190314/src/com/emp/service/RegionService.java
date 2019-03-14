@@ -9,8 +9,8 @@ import com.emp.domain.Region;
 public class RegionService {
 	
 	private RegionDAO dao;
-	public RegionService() {
-		this.dao = new RegionDAO();
+	public RegionService(RegionDAO rdao) {
+		this.dao = rdao;
 	}
 	
 	public void main(Scanner sc) {
