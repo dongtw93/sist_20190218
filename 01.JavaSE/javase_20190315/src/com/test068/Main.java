@@ -29,7 +29,6 @@ public class Main {
 		//Object remove(key)
 		//Object replace(key, value)
 		
-		
 		Map<String, String> map = new HashMap<String, String>();
 
 		//자료 입력
