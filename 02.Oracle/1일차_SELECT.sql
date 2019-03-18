@@ -1,4 +1,21 @@
 /*
+SQL is a language to operate databases; it includes database creation, deletion, fetching rows, modifying rows, etc. 
+
+DDL - Data Definition Language
+CREATE
+ALTER
+DROP
+
+DML - Data Manipulation Language
+SELECT
+INSERT
+UPDATE
+DELETE
+
+DCL - Data Control Language
+GRANT
+REVOKE
+
 
 SELECT [컬럼명] FROM [테이블명]
 
