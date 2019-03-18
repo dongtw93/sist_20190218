@@ -27,6 +27,7 @@ REVOKE
 
 
 /*
+
 특정 테이블(자료에 물리적 저장소)에 대한 조회 명령
 주의)적절한 권한(CONNECT, RESOURCE role + SELECT ANY TABLE)이 부여된 경우만 조회 가능
 
@@ -46,11 +47,30 @@ SELECT column1, column2....columnN
 */
 
 
+
+--------------------------------------------
+--모든 컬럼 조회하기
+--> 컬럼 리스트에 *(와일드 카드) 사용
+
 --hr 계정의 employees 테이블에 대한 SELECT 쿼리 실행
 SELECT * 
     FROM hr.employees;
     
 --hr 계정의 departments 테이블에 대한 SELECT 쿼리 실행
-SELECT *
+SELECT *  
     FROM hr.departments;
-    
+
+
+--------------------------------------------
+--원하는 컬럼 조회하기
+--> 컬럼 리스트에 column1, column2....columnN 나열
+--> 예를 들어, 이름, 전화번호 항목만 조회
+
+
+
+
+
+
+
+
+ 
