@@ -64,9 +64,11 @@ SELECT *
 --------------------------------------------
 --원하는 컬럼 조회하기
 --> 컬럼 리스트에 column1, column2....columnN 나열
---> 예를 들어, 이름, 전화번호 항목만 조회
+--> 예를 들어, 직원번호, 이름, 전화번호 항목만 조회
 
-
+SELECT employee_id, first_name, last_name, phone_number
+    FROM hr.employees;
+    
 
 
 
