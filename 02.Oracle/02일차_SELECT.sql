@@ -278,6 +278,10 @@ WHERE  column_name IS [NOT] NULL;
 */
 
 SELECT employee_id, first_name, department_id
+    FROM hr.employees;
+    
+
+SELECT employee_id, first_name, department_id
     FROM hr.employees
     WHERE department_id = NULL;
 --0 rows
@@ -288,17 +292,39 @@ SELECT employee_id, first_name, department_id
 --1 rows    
 
 
+SELECT employee_id, first_name, department_id
+    FROM hr.employees
+    WHERE department_id IS NOT NULL;
+--106 rows
+
+
+SELECT employee_id, first_name
+    , manager_id
+    , department_id, commission_pct
+    FROM hr.employees;
+
+
+
 --문제011) hr 계정(소유자)의 employees 테이블의 정보에서 
 --commission_pct가 NULL인 경우만 출력하는 쿼리 작성.
+SELECT employee_id, first_name, manager_id, department_id, commission_pct
+    FROM hr.employees    
+    WHERE commission_pct IS NULL;
 
 
 --문제012) hr 계정(소유자)의 employees 테이블의 정보에서 
 --commission_pct가 유효한 값(NULL이 아닌 값)을 가진 경우만 출력하는 쿼리 작성.
+SELECT employee_id, first_name, manager_id, department_id, commission_pct
+    FROM hr.employees    
+    WHERE commission_pct IS NOT NULL;
+
 
 --문제013) hr 계정(소유자)의 employees 테이블의 정보에서 
 --manager_id가 NULL인 경우만 출력하는 쿼리 작성.
 --manager_id 컬럼은 현재 직원의 상사에 대한 정보를 저장한 컬럼
-
+SELECT employee_id, first_name, last_name, manager_id, job_id
+    FROM hr.employees    
+    WHERE manager_id IS NULL;
 
 
 
