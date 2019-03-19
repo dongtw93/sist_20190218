@@ -199,7 +199,7 @@ SELECT *
 /*
 SELECT column1, column2....columnN
 FROM   table_name
-WHERE  column_name IN (val-1, val-2,...val-N);
+WHERE  column_name [NOT] IN (val-1, val-2,...val-N);
 */
 SELECT employee_id, first_name, phone_number, department_id
     FROM hr.employees
@@ -236,6 +236,10 @@ SELECT employee_id, first_name, phone_number, department_id
     FROM hr.employees
     WHERE first_name BETWEEN 'A' AND 'B';
 
+SELECT employee_id, first_name, phone_number, department_id
+    FROM hr.employees
+    WHERE first_name BETWEEN 'B' AND 'C';
+    
 SELECT employee_id, first_name, phone_number, salary
     FROM hr.employees
     WHERE salary NOT BETWEEN 2000 AND 3000;
@@ -246,8 +250,8 @@ SELECT employee_id, first_name, phone_number, department_id
  
  
 --문제010) hr 계정(소유자)의 employees 테이블의 정보에서 
---전화번호(phone_number)가 앞자리가 500~600번인 경우만 출력하는 쿼리 작성
+--전화번호(phone_number)가 앞자리가 500번대인 경우만 출력하는 쿼리 작성
 --문자열의 일부만 추출하는 함수 필요
 --515.XXX.XXXX, 590.XXX.XXXX
-
+--BETWEEN ~ AND 연산자 사용
 
