@@ -131,10 +131,17 @@ SELECT *
 
 --문제005) hr 계정(소유자)의 employees 테이블의 정보에서 
 -- salary가 10000 이상인 경우만 출력하는 쿼리 작성.
+SELECT *
+    FROM hr.employees
+    WHERE salary >= 10000;
 
 
 --문제006) hr 계정(소유자)의 employees 테이블의 정보에서 
 -- salary가 5000 이하인 경우만 출력하는 쿼리 작성.
+SELECT *
+    FROM hr.employees
+    WHERE salary <= 5000;
+
 
 
 -------------------------------------------
