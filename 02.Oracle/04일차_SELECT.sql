@@ -1,4 +1,20 @@
 /*
+SELECT : 특정 테이블(자료에 물리적 저장소)에 대한 조회 명령
+주의)적절한 권한(CONNECT, RESOURCE role + SELECT ANY TABLE)이 부여된 경우만 조회 가능
+
+형식
+SELECT column1, column2....columnN
+    FROM   table_name
+    WHERE  condition
+    GROUP BY column_name
+    HAVING (arithematic function condition)
+    ORDER BY column_name {ASC|DESC};
+
+*/
+
+
+
+/*
 FUNCTION  : Functions are similar to operators in that they manipulate data items and return a result.
 
 1. function(argument, argument, ...) 
@@ -7,6 +23,7 @@ FUNCTION  : Functions are similar to operators in that they manipulate data item
 4. 숫자 자료형 함수, 문자 자료형 함수, 날짜 자료형 함수, 형 변환 함수
 
 */
+
 
 --------------------------------
 --Single-Row Functions : Single-row functions return a single result row for every row of a queried table or view.
