@@ -126,13 +126,19 @@ SELECT ROUND(15.193,1) "Round" FROM DUAL;
 SELECT ROUND(15.193,-1) "Round" FROM DUAL;
 --20
 
-SELECT employee_id, first_name, salary * .00005, ROUND(salary * .00005, 1) "Round" 
+SELECT employee_id, first_name
+    , salary * .00005
+    , ROUND(salary * .00005, 1) "Round" 
     FROM hr.employees;
 
 
 
-SELECT employee_id, first_name, salary, ROUND(salary, -3) "Round" 
+SELECT employee_id, first_name
+    , salary
+    , ROUND(salary, -3) "Round" 
     FROM hr.employees;
+
+
 
 
 --TRUNC : The TRUNC (number) function returns n1 truncated to n2 decimal places.
@@ -146,11 +152,17 @@ SELECT TRUNC(15.193,1) "Trunc" FROM DUAL;
 SELECT TRUNC(15.193,-1) "Trunc" FROM DUAL;
 -10
 
-SELECT employee_id, first_name, salary * .00005, TRUNC(salary * .00005, 1) "Trunc" 
+SELECT employee_id, first_name
+    , salary * .00005
+    , TRUNC(salary * .00005, 1) "Trunc" 
     FROM hr.employees;
 
-SELECT employee_id, first_name, salary, TRUNC(salary, -3) "Trunc" 
+SELECT employee_id, first_name
+    , salary
+    , TRUNC(salary, -3) "Trunc" 
     FROM hr.employees;
+    
+    
     
     
     
@@ -172,13 +184,18 @@ SELECT UPPER('mr. scott mcmillan') "Uppercase"
   FROM DUAL;
 --MR. SCOTT MCMILLAN
 
-SELECT employee_id, first_name, UPPER(first_name) "FirstName"
+SELECT employee_id, first_name
+    , UPPER(first_name) "FirstName"
     FROM hr.employees;  
 
-SELECT employee_id, first_name, email
+SELECT employee_id, first_name
+    , email
     FROM hr.employees;  
+    
+    
 
 --SUBSTR : The SUBSTR functions return a portion of char, beginning at character position, substring_length characters long.
+--주의) 문자열 인덱스는 1부터 출발
 
 SELECT SUBSTR('ABCDEFG',3) "Substring"
      FROM DUAL;
@@ -198,6 +215,15 @@ SELECT SUBSTR('ABCDEFG',-5,4) "Substring"
 --650.121.XXXX
 --011.44.1344.XXXXXX 형식은 제외.
 
+SELECT employee_id, first_name
+    , phone_number
+    , SUBSTR(phone_number, -4, 4) "SUBSTR(phone_number)"
+    FROM hr.employees
+    WHERE SUBSTR(phone_number, 1, 3) NOT IN '011';
+     
+     
+     
+     
      
 
 --CONCAT : CONCAT returns char1 concatenated with char2. 
@@ -210,13 +236,21 @@ SELECT CONCAT(CONCAT('A', 'B'), 'C') "concat"
     FROM DUAL;
 --ABC
 
+SELECT 'A'||'B'||'C' "concat"
+    FROM DUAL;
+--ABC
+
 SELECT CONCAT(CONCAT(last_name, '''s job category is '), job_id) "Job" 
   FROM hr.employees; 
   
   
 SELECT employee_id, first_name, email
-    , CONCAT(email, '@HR.COM') "Email"
+    , CONCAT(email, '@HR.COM') "Email1"
+    , LOWER(CONCAT(email, '@HR.COM')) "Email2"
     FROM hr.employees;
+
+
+
 
 
 --LTRIM : LTRIM removes from the left end of char all of the characters contained in set. 
@@ -263,6 +297,8 @@ SELECT TRIM(TRAILING '-' FROM '--------BROWNING---------') "TRIM Example"
 --'--------BROWNING'
 
 
+
+
 --LPAD : LPAD returns expr1, left-padded to length n characters with the sequence of characters in expr2. 
 SELECT LPAD('Page 1',15,'*') "LPAD example"
   FROM DUAL;
@@ -277,10 +313,19 @@ SELECT RPAD(SUBSTR(first_name, 1, 2),10,'*') "RPAD example"
   FROM hr.employees;
 
 
+
+
 --문제018) hr 계정(소유자)의 employees 테이블의 정보에서 
 --전화번호(phone_number)에서 끝 4자리를 '*'로 출력하는 쿼리 작성. RPAD() 함수 사용.
 --650.121.****
 --011.44.1344.XXXXXX 형식은 제외.
+
+SELECT employee_id
+    , phone_number
+    , RPAD(SUBSTR(phone_number,1,8), 12, '*') AS "Phone_Number"
+    FROM HR.employees
+    WHERE SUBSTR(phone_number,1,3) NOT IN '011';
+
 
 
 
@@ -296,24 +341,50 @@ SELECT REPLACE('JACK and JUE','J','BL') "Changes"
 --'BLACK and BLUE'     
 
 SELECT employee_id, first_name, phone_number
+    , REPLACE(phone_number, '.') "newPhoneNumber"
+    FROM hr.employees;
+
+SELECT employee_id, first_name, phone_number
+    , REPLACE(phone_number, '.', '-') "newPhoneNumber"
+    FROM hr.employees;
+    
+SELECT employee_id, first_name, phone_number
     , REPLACE(phone_number, '011.44.', '010.') "newPhoneNumber"
     FROM hr.employees;
+     
+     
      
 
 --문제019) hr 계정(소유자)의 employees 테이블의 정보에서 
 --전화번호(phone_number)에서 650.121.XXXX 가 650.1212.XXXX로 변경하는 쿼리 작성. REPLACE() 함수 사용.
 --650.121.4567 => 650.1212.4567
 
+SELECT employee_id, first_name, phone_number,department_id
+    , REPLACE(phone_number, '650.121.', '650.1212.') "newPhoneNumber"
+    FROM hr.employees;
+    
 
-
-
+     
 
 --문제020) hr 계정(소유자)의 employees 테이블의 정보에서 
 --특정 부서(department_id가 50인 경우)의 전화번호(650.501.XXXX)를 
 --650.5012.XXXX로 변경하는 쿼리 작성. REPLACE() 함수 사용.
+SELECT employee_id, department_id, first_name,department_id, phone_number
+    , REPLACE(phone_number, '650.501.', '650.5012.') "newPhoneNumber"
+    FROM hr.employees
+    WHERE SUBSTR(department_id, 1,2) IN 50;
 
-     
-     
+
+--추가문제) hr 계정(소유자)의 employees 테이블의 정보에서 
+--특정 부서(department_id가 50인 경우)의 이름(firstname) 출력시
+--3,4번째 문자만 '-'으로 대체해서 출력.  REPLACE() 함수 사용.
+SELECT employee_id, first_name
+    , REPLACE(first_name, SUBSTR(first_name, 2,3), '--') "newfirst_name"
+    , phone_number, department_id
+    FROM hr.employees
+    WHERE SUBSTR(department_id, 1,2) IN 50;
+
+
      
 
 --INSTR : The INSTR functions search string for substring.
@@ -337,7 +408,26 @@ SELECT INSTR('CORPORATE FLOOR','OR', -3, 2) "Reversed Instring"
   FROM DUAL;
 --2
 
-  
+
+SELECT INSTR('CORPORATE FLOOR','AB') "Instring"
+  FROM DUAL;
+--0 
+
+
+SELECT INSTR('CORPORATE FLOOR','or') "Instring"
+  FROM DUAL;
+--0
+
+
+SELECT INSTR(LOWER('CORPORATE FLOOR'),LOWER('or')) "Instring"
+  FROM DUAL;
+--2
+
+
+SELECT employee_id, first_name, department_id, job_id
+    FROM hr.employees
+    WHERE INSTR(job_id, 'MGR') > 0;
+
 
 
 --LENGTH : The LENGTH functions return the length of char.
@@ -349,11 +439,15 @@ SELECT LENGTH('CANDIDE') "Length in characters"
 SELECT employee_id, first_name, LENGTH(first_name) "Length in characters"
     FROM hr.employees;
 
+
+
  
 --문제021) hr 계정(소유자)의 employees 테이블의 정보에서 
 --first_name이 세 글자로 구성된 경우만 출력하는 쿼리 작성. LENGTH() 함수 사용.
 --Guy, Den, Pat, Lex
-
+SELECT employee_id, first_name, last_name, phone_number
+    FROM hr.employees
+    WHERE LENGTH(first_name) = 3;
 
 
 
@@ -362,6 +456,9 @@ SELECT employee_id, first_name, LENGTH(first_name) "Length in characters"
 --전화번호(phone_number)에서 끝 4자리 또는 6자리를 '*'로 출력하는 쿼리 작성. RPAD(), INSTR(), LENGTH() 함수 사용.
 --650.121.****
 --011.44.1344.******
+SELECT employee_id, first_name, last_name, department_id phone_number
+   , RPAD(SUBSTR(phone_number, 1, INSTR(phone_number, '.', -1)), LENGTH(phone_number), '*') phone_number_
+   FROM hr.employees;
 
     
     
