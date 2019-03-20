@@ -39,9 +39,13 @@ SELECT employee_id, first_name, job_id, department_id
 
 
 --문제015) hr 계정(소유자)의 employees 테이블의 정보에서 
---부서번호(department_id)가 30이면서, 입사년도(hire_date)가 2005년인 경우만 출력하는 쿼리 작성.
+--부서번호(department_id)가 30이면서, 
+--입사년도(hire_date)가 2005년인 경우만 출력하는 쿼리 작성.
 
-
+SELECT employee_id, first_name, job_id, department_id, hire_date
+  FROM hr.employees
+  WHERE department_id = 30
+    AND TO_CHAR(hire_date, 'YYYY') = '2005';
 
 
 
@@ -60,6 +64,10 @@ SELECT employee_id, first_name, job_id, department_id
 
 SELECT employee_id, first_name, job_id, department_id
   FROM hr.employees
+  ORDER BY first_name;
+  
+SELECT employee_id, first_name, job_id, department_id
+  FROM hr.employees
   ORDER BY department_id ASC;
 
 SELECT employee_id, first_name, job_id, salary
@@ -70,10 +78,15 @@ SELECT employee_id, first_name, job_id, department_id, salary
   FROM hr.employees
   ORDER BY department_id ASC, salary DESC;
 
+
 --문제016) hr 계정(소유자)의 employees 테이블의 정보에서 
 --부서번호(department_id)가 30인 직원들을 
 --입사일(hire_date) 순으로 정렬해서 출력하는 쿼리 작성.
 
+SELECT employee_id, first_name, job_id, department_id, hire_date
+    FROM hr.employees
+    WHERE department_id = 30
+    ORDER BY hire_date;
 
 
 
