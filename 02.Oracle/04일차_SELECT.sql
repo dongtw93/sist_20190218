@@ -284,189 +284,46 @@ SELECT employee_id, first_name, salary
 
 
 
----------------------------------------------------------------------
---Aggregate function
---Aggregate functions return a single result row based on groups of rows, rather than on single rows
 
---주의) Aggregate function은 단독 실행해야 한다. 다른 함수(Single-Row Functions)와 같이 사용할 수 없다.
+--------------------------------------
+--정규표현식을 이용한 검색 함수
+--REGEXP_LIKE()
+--REGEXP_REPLACE()
+--REGEXP_SUBSTR()
+--REGEXP_COUNT()
 
---COUNT : COUNT returns the number of rows returned by the query.
---SUM : SUM returns the sum of values of expr. 
---AVG : AVG returns average value of expr.
---RANK : RANK calculates the rank of a value in a group of values. 1, 2, 2, 4
---DENSE_RANK  : DENSE_RANK calculates the rank of a value in a group of values.  1, 2, 2, 3
---주의) null 값은 집계 함수 연산에 참여하지 않는다.
-
-SELECT employee_id, first_name, COUNT(*) "count"
-    FROM hr.employees;
---ORA-00937: not a single-group group function
-
-SELECT COUNT(*) "count"
-    FROM hr.employees;
---107
-
-SELECT COUNT(*) "count"
+SELECT employee_id, first_name, last_name, job_id
     FROM hr.employees
-    WHERE manager_id IS NULL;
---1
-
-SELECT COUNT(*) "count"
-    FROM hr.employees
-    WHERE department_id IS NULL;
---1
-
-
-SELECT COUNT(employee_id) "count"
-    FROM hr.employees;
---PK 제약이 있는 컬럼을 대상으로 COUNT() 함수 사용시 전체 카운팅
---107
-
-SELECT COUNT(commission_pct) "count"
-    FROM hr.employees;
---null이 있는 컬럼을 대상으로 COUNT() 함수 사용시 일부 카운팅. null 값은 카운팅 제외.
---35
-
-SELECT COUNT(department_id) "count"
-    FROM hr.employees;
---106
-
-
---문제26)  hr 계정(소유자)의 employees 테이블의 정보에서 
---commission_pct가 없는(값이 null인) 직원의 수를 출력하는 쿼리 작성. COUNT() 함수 사용.
-SELECT COUNT(*) "count"
-    FROM hr.employees
-    WHERE commission_pct IS NULL;
---72
-
-
-추가문제) hr 계정(소유자)의 employees 테이블의 정보에서 
---부하직원이 있는 직원의 수를 출력하는 쿼리 작성. COUNT() 함수 사용.
---DISTINCT 키워드는 중복 제거 역할
-
-
-
-----------------------------------------------
-SELECT SUM(salary) "Total"
-     FROM hr.employees;
-     
-SELECT SUM(salary) "Total"
-     FROM hr.employees
-     WHERE department_id = 100;
-     
-
-SELECT ROUND(AVG(salary),2) "Total"
-     FROM hr.employees;
-     
-SELECT ROUND(AVG(salary)) "Total"
-     FROM hr.employees
-     WHERE department_id = 100;     
-     
-     
---문제027) hr 계정(소유자)의 employees 테이블의 정보에서 
---특정 직위(job_id)를 가진 직원의 급여 합 및 평균 출력하는 쿼리 작성.
---'CLERK'으로 끝나는 직위를 가진 직원 대상. SUBSTR() 함수 사용.
---SH_CLERK, ST_CLERK, PU_CLERK
-
-
-
-
---------------------------------
-SELECT department_id, last_name, salary,
-       RANK() OVER (ORDER BY salary DESC) "RANK"
-  FROM hr.employees;
-
-SELECT department_id, last_name, salary,
-       DENSE_RANK() OVER (ORDER BY salary DESC) "DENSE_RANK"
-  FROM hr.employees;
-
-
---문제028) hr 계정(소유자)의 employees 테이블의 정보에서 
---입사년월일(hire_date)가 빠른 순으로 등수 부여 출력하는 쿼리 작성.
---RANK() OVER() 함수 사용
-
-
-
---------------------------------------------------------
---SQL GROUP BY Clause
---Specify the GROUP BY clause if you want the database to group the selected rows based on the value of expr(s) for each row and return a single row of summary information for each group.
-/*
-SELECT column_name1, SUM(column_name2), ...
-FROM   table_name
-GROUP BY column_name1;
-*/
---주의) GROUP BY 키워드에 사용하는 컬럼은 중복된 자료가 있는 컬럼(FK 제약이 있는 컬럼) 선정. PK, UK 제약이 있는 컬럼은 적절한 대상이 아니다.
-
-SELECT department_id, COUNT(*), SUM(salary)
-    FROM  hr.employees
-    GROUP BY department_id
-    ORDER BY department_id;
-
-SELECT MIN(salary), MAX(salary)
-    FROM hr.employees;
-
-SELECT department_id, MIN(salary), MAX(salary)
-    FROM hr.employees
-    GROUP BY department_id
-    ORDER BY department_id;
-   
-SELECT job_id, COUNT(*) "COUNT", AVG(salary)
-    FROM hr.employees
-    GROUP BY job_id
-    ORDER BY job_id;
+    WHERE REGEXP_LIKE(first_name, '^A');
     
-SELECT department_id, job_id, COUNT(*)
+SELECT employee_id, first_name, last_name, job_id
     FROM hr.employees
-    GROUP BY department_id, job_id
-    ORDER BY department_id, job_id;    
+    WHERE REGEXP_LIKE(job_id, 'CLERK$');        
+
+
+SELECT employee_id, first_name, last_name, job_id
+    FROM hr.employees
+    WHERE REGEXP_LIKE(first_name, '[AB]');
+
+SELECT employee_id, first_name, last_name, job_id
+    FROM hr.employees
+    WHERE REGEXP_LIKE(first_name, '[A-D]');
+
+    
+SELECT employee_id, first_name, last_name, job_id
+    FROM hr.employees
+    WHERE REGEXP_LIKE(first_name, '[A-Za-z]{6}');    
+    
+SELECT employee_id, first_name, last_name
+    , phone_number, job_id
+    FROM hr.employees
+    WHERE REGEXP_LIKE(phone_number, '515.123.*');      
+    
+SELECT employee_id, first_name, last_name
+    , phone_number, job_id
+    FROM hr.employees
+    WHERE REGEXP_LIKE(phone_number, '515.123.*|515.124.*');
    
-     
---문제029) hr 계정(소유자)의 employees 테이블의 정보에서 
---특정 직위(job_id)별 직원의 급여 합 및 평균 출력하는 쿼리 작성.
---'CLERK'으로 끝나는 직위를 가진 직원 대상. SUBSTR() 함수 사용.
---SH_CLERK, ST_CLERK, PU_CLERK
-
-
-
-------------------------------------
---SQL HAVING Clause
-/*
-SELECT column_name1, SUM(column_name2), ...
-FROM   table_name
-GROUP BY column_name1
-HAVING (arithematic function condition);
-*/
---HAVING 키워드는 GROUP BY 키워드가 같이 사용한다. 단독 실행 가능.
---HAVING 키워드에는 조건식 작성시 집계함수를 사용한다.
-
-SELECT department_id, COUNT(*) "COUNT", SUM(salary)
-    FROM  hr.employees
-    GROUP BY department_id
-    ORDER BY "COUNT";
-
-SELECT department_id, COUNT(*) "COUNT", SUM(salary)
-    FROM  hr.employees
-    GROUP BY department_id
-    HAVING COUNT(*) >= 10
-    ORDER BY "COUNT";
-
---문제030) hr 계정(소유자)의 employees 테이블의 정보에서 
---'CLERK'으로 끝나는 직위를 가진 직원 대상. SUBSTR() 함수 사용. WHERE 구문
---특정 직위(job_id)별 직원의 급여 합 및 평균 출력하는 쿼리 작성. GROUP BY 구문.
---급여 평균이 일정 기준(???) 이상인 경우만 출력. HAVING 구문.
-
-
-
----------------------------------------------------------
---분석 함수 사용시 특정 그룹을 만든 후에 함수 적용
---PARTITION BY 키워드 사용
-
-SELECT department_id, last_name, salary,
-       RANK() OVER (PARTITION BY department_id  ORDER BY salary DESC) "RANK"
-  FROM hr.employees;
-
-SELECT department_id, last_name, salary,
-       DENSE_RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) "DENSE_RANK"
-  FROM hr.employees;
-  
-  
-----------------------------------------------------------
+   
+   
+    
