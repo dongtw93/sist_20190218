@@ -309,6 +309,9 @@ SELECT employee_id, first_name, last_name, job_id
     FROM hr.employees
     WHERE REGEXP_LIKE(first_name, '[A-D]');
 
+SELECT employee_id, first_name, last_name, job_id
+    FROM hr.employees
+    WHERE REGEXP_LIKE(first_name, 'A..m');
     
 SELECT employee_id, first_name, last_name, job_id
     FROM hr.employees
@@ -323,7 +326,7 @@ SELECT employee_id, first_name, last_name
     , phone_number, job_id
     FROM hr.employees
     WHERE REGEXP_LIKE(phone_number, '515.123.*|515.124.*');
-   
-   
-   
-    
+
+
+
+
