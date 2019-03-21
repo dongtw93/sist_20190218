@@ -111,15 +111,22 @@ SELECT '10' + 20 FROM DUAL;
 SELECT TO_NUMBER('10') + 20 FROM DUAL;
 --30
 
-SELECT employee_id, first_name, last_name, TO_CHAR(hire_date, 'YYYY') "HIRE_DATE_YEAR"
+
+SELECT employee_id, first_name, last_name
+    , TO_CHAR(hire_date, 'YYYY') "HIRE_DATE_YEAR"
      FROM hr.employees
-     ORDER BY HIRE_DATE_YEAR;
+     ORDER BY "HIRE_DATE_YEAR";
 
 
 --문제23) hr 계정(소유자)의 employees 테이블의 정보에서 
 --입사년도(hire_date)가 2005년도인 경우만 출력하는 쿼리 작성.
 --출력시 입사년월일 순으로 출력되도록 한다.
+--TO_CHAR() 함수 사용
 
+SELECT  employee_id, first_name, hire_date
+    FROM HR.employees
+    WHERE TO_CHAR(hire_date, 'YYYY') IN ('2005')
+    ORDER BY hire_date;
 
 
 
