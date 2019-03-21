@@ -136,20 +136,45 @@ SELECT  employee_id, first_name, hire_date
 --NVL : NVL lets you replace null (returned as a blank) with a string in the results of a query. 
 --NVL2 : NVL2 lets you determine the value returned by a query based on whether a specified expression is null or not null.
 
+
+--산술적 연산의 결과가 NULL이 된다
+SELECT NULL + 10 FROM DUAL;
+SELECT NULL * 10 FROM DUAL;
+SELECT TO_CHAR(NULL) FROM dual;
+SELECT NULL, 'null' FROM DUAL;
+
 SELECT employee_id, first_name, last_name
-    , commission_pct, NVL(TO_CHAR(commission_pct), 'Not Applicable') commission
+    , commission_pct
+    , NVL(commission_pct, 0) commission_pct_
+    , NVL(TO_CHAR(commission_pct), 'Not Applicable') commission
     , department_id
   FROM hr.employees;
   
   
+  
 SELECT employee_id, first_name, last_name, salary
-    , commission_pct, NVL2(commission_pct, salary + (salary * commission_pct), salary) income
+    , commission_pct
+    , salary + (salary * NVL(commission_pct, 0)) income
+  FROM hr.employees; 
+  
+  
+SELECT employee_id, first_name, last_name, salary
+    , commission_pct
+    , NVL2(commission_pct
+        , salary + (salary * commission_pct)
+        , salary) income
   FROM hr.employees;  
   
 
 --문제24) hr 계정(소유자)의 employees 테이블의 정보에서 
 --department_id가 null이 아닌 경우 department_id를 출력하고,
 --department_id가 null인 경우 '부서없음'으로 출력하는 쿼리 작성. NVL() 함수 사용.
+
+SELECT employee_id, first_name, last_name
+    , department_id
+    , NVL(TO_CHAR(department_id), '부서없음') department_id_
+    FROM hr.employees;
+
 
 
 
@@ -164,22 +189,98 @@ SELECT employee_id, first_name, last_name, salary
 50	Shipping
 60	IT
 */
+
 SELECT employee_id, first_name
     , department_id
-    , DECODE(department_id, 40, 'Human Resources'
-                        , 50, 'Shipping'
-                        , 60, 'IT') "department_name"
+    , DECODE(department_id
+                    , 40, 'Human Resources'
+                    , 50, 'Shipping'
+                    , 60, 'IT') "department_name"
+    FROM hr.employees
+    ORDER BY department_id;
+   
+   
+SELECT employee_id, first_name
+    , department_id
+    , DECODE(department_id
+                , 40, 'Human Resources'
+                , 50, 'Shipping'
+                , 60, 'IT'
+                , 'etc.') "department_name"
+    FROM hr.employees
+    ORDER BY department_id; 
+    
+    
+SELECT employee_id, first_name
+    , department_id
+    , DECODE(department_id
+                , 40, 'Human Resources'
+                , 50, 'Shipping'
+                , 60, 'IT') "department_name"
     FROM hr.employees
     WHERE department_id BETWEEN 40 AND 60
     ORDER BY department_id;
     
+    
+
 --문제25) hr 계정(소유자)의 employees 테이블의 정보에서 
---salary 컬럼의 값을 3개의 등급으로 구분해서 출력하는 쿼리 작성. DECODE() 함수 사용.
+--salary 컬럼의 값을 3개의 등급으로 구분해서 출력하는 쿼리 작성. 
+--DECODE() 함수 사용.
 --출력시 salary가 많은 직원을 먼저 출력하도록 한다. 
 --'10000미만' -> '10000달러미만'
 --'10000이상~20000미만' -> '10000달러대'
 --'20000이상' -> '20000달러대'
 
+SELECT employee_id, first_name, salary
+        , DECODE(TRUNC(salary, -4)
+                    , 10000, '10000달러대'
+                    , 20000, '20000달러대'
+                    , '10000달러미만') AS "SALARY 등급" 
+        FROM hr.employees 
+        ORDER BY salary DESC;
+
+
+
+------------------------------
+--CASE ~ END 구문
+--프로그램에서 if ~ else if ~ else 역할을 하는 구문
+--형식1
+/*
+    CASE 수식 
+        WHEN 값1 THEN 반환값1
+        WHEN 값2 THEN 반환값2
+        WHEN 값3 THEN 반환값3
+        ELSE 반환값4
+    END
+*/
+SELECT employee_id, first_name, salary
+        , CASE TRUNC(salary, -4)
+            WHEN 20000 THEN '20000달러대'
+            WHEN 10000 THEN '10000달러대'
+            ELSE '10000달러미만'
+          END "SALARY 등급" 
+        FROM hr.employees 
+        ORDER BY salary DESC;
+        
+        
+--형식2
+/*
+    CASE  
+        WHEN 조건식1 THEN 반환값1
+        WHEN 조건식2 THEN 반환값2
+        WHEN 조건식3 THEN 반환값3
+        ELSE 반환값4
+    END
+*/
+
+SELECT employee_id, first_name, salary
+        , CASE
+            WHEN salary >= 20000 THEN '20000달러대'
+            WHEN salary >= 10000 THEN '10000달러대'
+            ELSE '10000달러미만'
+          END "SALARY 등급" 
+        FROM hr.employees 
+        ORDER BY salary DESC;
 
 
 
