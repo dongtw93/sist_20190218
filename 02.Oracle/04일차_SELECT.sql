@@ -44,6 +44,33 @@ SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') "NOW"
 --2018-08-16 09:10:20
 
 
+--날짜 사이의 간격 (일단위)
+SELECT TO_DATE('2019-03-21') - TO_DATE('2019-03-20') "날짜 사이의 간격"
+    FROM DUAL;
+
+
+--날짜 사이의 간격 (일단위)
+SELECT TRUNC(SYSDATE - TO_DATE('2019-02-21')) "날짜 사이의 간격"
+    FROM DUAL;
+
+
+--날짜 사이의 간격 (일단위)
+SELECT TRUNC(SYSDATE) - TO_DATE('2019-02-21') "날짜 사이의 간격"
+    FROM DUAL;
+    
+
+--평년(2013) 확인
+SELECT TO_DATE('2013-03-01') - TO_DATE('2013-02-27') "날짜 사이의 간격"
+    FROM DUAL;
+--2
+
+--윤년(2012) 확인
+SELECT TO_DATE('2012-03-01') - TO_DATE('2012-02-27') "날짜 사이의 간격"
+    FROM DUAL;
+--3
+
+
+
 
 ----------------------------------------
 --Conversion Functions
