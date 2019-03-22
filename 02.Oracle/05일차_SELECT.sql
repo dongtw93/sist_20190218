@@ -35,6 +35,7 @@ FUNCTION  : Functions are similar to operators in that they manipulate data item
 --COUNT : COUNT returns the number of rows returned by the query.
 --SUM
 --AVG
+--MAX, MIN
 --RANK
 --DENSE_RANK
 --주의) null 값은 집계 함수 연산에 참여하지 않는다.
@@ -49,6 +50,16 @@ SELECT employee_id, first_name, COUNT(*) "count"
 SELECT COUNT(*) "count"
     FROM hr.employees;
 --107
+
+SELECT COUNT(employee_id) "count"
+    FROM hr.employees;
+--107
+
+SELECT COUNT(department_id) "count"
+    FROM hr.employees;
+--106
+--NULL 값이 있는 연산 제외
+
 
 SELECT COUNT(*) "count"
     FROM hr.employees
@@ -76,10 +87,38 @@ SELECT COUNT(department_id) "count"
 --106
 
 
+--DISTINCT 키워드는 중복 제거 역할
+SELECT DISTINCT department_id 
+    FROM hr.employees;
+--12
+--NULL 포함
+
+SELECT COUNT(DISTINCT department_id) "count"
+    FROM hr.employees;
+--11
+--NULL제외
+
+SELECT DISTINCT job_id
+    FROM hr.employees;
+--19    
+    
+
+
 --문제26)  hr 계정(소유자)의 employees 테이블의 정보에서 
 --commission_pct가 없는(값이 null인) 직원의 수를 출력하는 쿼리 작성. COUNT() 함수 사용.
---DISTINCT 키워드는 중복 제거 역할
+SELECT COUNT(*) "count"
+    FROM hr.employees
+    WHERE commission_pct IS NULL;
+--72
 
+
+--추가문제) hr 계정(소유자)의 employees 테이블의 정보에서 
+--입사년도가 2002년인 직원의 수를 출력하는 쿼리 작성.
+--COUNT() 함수 사용
+SELECT COUNT(*) "count"
+    FROM hr.employees
+    WHERE TO_CHAR(hire_date, 'YYYY') = '2002';
+--7
 
 
 
@@ -93,38 +132,79 @@ SELECT SUM(salary) "Total"
      FROM hr.employees
      WHERE department_id = 100;
      
-
-SELECT ROUND(AVG(salary),2) "Total"
+SELECT AVG(salary) "Total"
      FROM hr.employees;
      
-SELECT ROUND(AVG(salary)) "Total"
+SELECT ROUND(AVG(salary), 1) "Total"
      FROM hr.employees
      WHERE department_id = 100;     
      
      
 --문제027) hr 계정(소유자)의 employees 테이블의 정보에서 
---특정 직위(job_id)를 가진 직원의 급여 합 및 평균 출력하는 쿼리 작성.
---'CLERK'으로 끝나는 직위를 가진 직원 대상. SUBSTR() 함수 사용.
+--특정 직위(job_id)를 가진 직원의 급여(salary) 합 및 평균 출력하는 쿼리 작성.
+--평균 출력시 소수이하 한자리만 출력.
+--'CLERK'으로 끝나는 직위를 가진 직원 대상. 
+--REGEXP_LIKE() 함수 사용.
 -->SH_CLERK, ST_CLERK, PU_CLERK
+SELECT employee_id, first_name, job_id 
+     FROM hr.employees
+     WHERE REGEXP_LIKE(job_id, '_CLERK$');
+
+SELECT ROUND(AVG(salary), 1) "AVG", SUM(salary) "SUM" 
+     FROM hr.employees
+     WHERE REGEXP_LIKE(job_id, '_CLERK$');
+
+
+--추가문제) hr 계정(소유자)의 employees 테이블의 정보에서 
+--특정 직위(job_id)를 가진 직원의 급여(salary) 합 및 평균 출력하는 쿼리 작성.
+--평균 출력시 소수이하 한자리만 출력.
+--'MAN' 또는 'MGR'로 끝나는 직위를 가진 직원 대상. 
+--REGEXP_LIKE() 함수 사용.
+SELECT employee_id, first_name, job_id 
+    FROM HR.employees
+    WHERE REGEXP_LIKE(job_id, '_MAN$|_MGR$');
+    
+SELECT COUNT(*) "COUNT", SUM(salary) "SUM"
+    , ROUND(AVG(salary),1) "AVG"
+    FROM HR.employees
+    WHERE REGEXP_LIKE(job_id, '_MAN$|_MGR$');
+
+SELECT MAX(salary) "MAX", MIN(salary) "MIN"
+    FROM hr.employees;
+
 
 
 
 
 
 --------------------------------
-SELECT department_id, last_name, salary,
-       RANK() OVER (ORDER BY salary DESC) "RANK"
+--분석함수
+--RANK() OVER() : 1, 2, 2, 4, ...
+--DENSE_RANK() OVER() : 1, 2, 2, 3, ...
+--ROW_NUMBER() OVER() : 1, 2, 3, 4, ...
+--SUM() OVER() : 누적 결과 반환
+
+SELECT department_id, last_name, salary
+       ,RANK() OVER (ORDER BY salary DESC) "RANK"
+       ,DENSE_RANK() OVER (ORDER BY salary DESC) "DENSE_RANK"
+       ,ROW_NUMBER() OVER (ORDER BY salary DESC) "ROW_NUMBER"
   FROM hr.employees;
 
-SELECT department_id, last_name, salary,
-       DENSE_RANK() OVER (ORDER BY salary DESC) "DENSE_RANK"
-  FROM hr.employees;
 
 
 --문제028) hr 계정(소유자)의 employees 테이블의 정보에서 
 --입사년월일(hire_date)가 빠른 순으로 등수 부여 출력하는 쿼리 작성.
---RANK() OVER() 함수 사용
+--같은 날짜인 경우 같은 등수 출력.
+--DENSE_RANK() OVER() 함수 사용
+SELECT employee_id, last_name, hire_date
+        ,DENSE_RANK() OVER (ORDER BY hire_date) "DENSE_RANK"
+ FROM hr.employees;
 
+
+
+SELECT salary, SUM(salary) OVER(ORDER BY salary) "SUM" 
+     FROM hr.employees
+     WHERE REGEXP_LIKE(job_id, '_CLERK$');
 
 
 
@@ -142,8 +222,17 @@ GROUP BY column_name1;
 
 SELECT department_id, COUNT(*), SUM(salary)
     FROM  hr.employees
+    GROUP BY department_id;
+    
+SELECT department_id  depId, COUNT(*), SUM(salary)
+    FROM  hr.employees
     GROUP BY department_id
     ORDER BY department_id;
+    
+SELECT department_id  deptId, COUNT(*), SUM(salary)
+    FROM  hr.employees
+    GROUP BY department_id
+    ORDER BY deptId;    
 
 SELECT MIN(salary), MAX(salary)
     FROM hr.employees;
@@ -162,15 +251,19 @@ SELECT department_id, job_id, COUNT(*)
     FROM hr.employees
     GROUP BY department_id, job_id
     ORDER BY department_id, job_id;    
-   
+
      
 --문제029) hr 계정(소유자)의 employees 테이블의 정보에서 
 --특정 직위(job_id)별 직원의 급여 합 및 평균 출력하는 쿼리 작성.
---'CLERK'으로 끝나는 직위를 가진 직원 대상. SUBSTR() 함수 사용.
+--'CLERK'으로 끝나는 직위를 가진 직원 대상. 
+--REGEXP_LIKE() 함수 사용.
 -->SH_CLERK, ST_CLERK, PU_CLERK
 
 
-
+SELECT job_id, ROUND(AVG(salary), 1) "AVG", SUM(salary) "SUM" 
+     FROM hr.employees
+     WHERE REGEXP_LIKE(job_id, '_CLERK$')
+     GROUP BY job_id;
 
 
 
@@ -197,11 +290,15 @@ SELECT department_id, COUNT(*) "COUNT", SUM(salary)
     ORDER BY "COUNT";
 
 --문제030) hr 계정(소유자)의 employees 테이블의 정보에서 
---'CLERK'으로 끝나는 직위를 가진 직원 대상. SUBSTR() 함수 사용. WHERE 구문
+--'CLERK'으로 끝나는 직위를 가진 직원 대상. REGEXP_LIKE() 함수 사용. WHERE 구문
 --특정 직위(job_id)별 직원의 급여 합 및 평균 출력하는 쿼리 작성. GROUP BY 구문.
 --급여 평균이 일정 기준(3000) 이상인 경우만 출력. HAVING 구문.
 
-
+SELECT job_id , SUM(salary) "SUM", AVG(salary) "AVG" 
+    FROM  hr.employees 
+    WHERE  REGEXP_LIKE(job_id,'CLERK$') 
+    GROUP BY job_id
+    HAVING AVG(salary) >= 3000;
 
 
 
@@ -218,101 +315,34 @@ SELECT department_id, last_name, salary,
   FROM hr.employees;
   
   
+--추가문제) hr 계정(소유자)의 employees 테이블의 정보에서 
+--'CLERK'으로 끝나는 직위를 가진 직원 대상. REGEXP_LIKE() 함수 사용. WHERE 구문
+--특정 직위(job_id)별 급여 많이 받는 순으로 순위 부여 출력.
+--DENSE_RANK() OVER() 함수
+SELECT employee_id, department_id, last_name, salary, job_id,
+     DENSE_RANK() OVER (PARTITION BY job_id  ORDER BY salary DESC) "DENSE_RANK"
+     FROM hr.employees
+     WHERE REGEXP_LIKE (job_id, '_CLERK$');
+
+
   
   
   
+------------------------------
+--ROWID, ROWNUM
+--쿼리 실행시 결과에 내부적으로 부여되는 고유번호
+SELECT ROWNUM,  employee_id, first_name, phone_number
+    FROM hr.employees;
+
+SELECT  *
+    FROM (SELECT ROWNUM rn,  employee_id, first_name, phone_number
+        FROM hr.employees)
+    WHERE rn BETWEEN 1 AND 10;
+
+SELECT  *
+    FROM (SELECT ROWNUM rn,  employee_id, first_name, phone_number
+        FROM hr.employees)
+    WHERE rn BETWEEN 11 AND 20;  
   
 ----------------------------------------------------------
-/*
-JOIN : 두 개 이상의 테이블을 결합해서 조회하는 명령
 
-1. INNER JOIN : returns rows when there is a match in both tables.
-2. LEFT JOIN : returns all rows from the left table, even if there are no matches in the right table.
-3. RIGHT JOIN : returns all rows from the right table, even if there are no matches in the left table.
-4. FULL JOIN : returns rows when there is a match in one of the tables.
-5. SELF JOIN : is used to join a table to itself as if the table were two tables, temporarily renaming at least one table in the SQL statement.
-6. CARTESIAN JOIN : returns the Cartesian product of the sets of records from the two or more joined tables.
-*/
-
-
-
-/*
-INNER JOIN : = (같음을 비교하는 연산자)를 이용한 조인 조건 설정
-주의) PK, FK 제약을 지정한 컬럼을 대상으로 조인 조건 지정
-
-ANSI [American National Standards Institute] 표기법
-    SELECT table1.column1, table2.column2...
-    FROM table1
-    INNER JOIN table2
-    ON table1.common_field = table2.common_field;
-    --WHERE 조건식
-
-Oracle 표기법
-    SELECT table1.column1, table2.column2...
-    FROM table1, table2
-    WHERE table1.common_field = table2.common_field;
-    --AND 조건식
-
-*/
-
---hr.departments, hr.employees 
-SELECT hr.departments.department_id, department_name, employee_id, first_name
-    FROM hr.departments INNER JOIN hr.employees
-    ON hr.departments.department_id = hr.employees.department_id;
-
---hr.departments, hr.employees 
-SELECT hr.departments.department_id, department_name, employee_id, first_name
-    FROM hr.departments, hr.employees
-    WHERE hr.departments.department_id = hr.employees.department_id;
-    
---Alias 적용
-SELECT d.department_id, department_name, employee_id, first_name
-    FROM hr.departments d, hr.employees e
-    WHERE d.department_id = e.department_id;
-    
-    
---hr.jobs, hr.employees 
-SELECT employee_id, first_name, last_name, job_title
-    FROM hr.jobs j, hr.employees e
-    WHERE j.job_id = e.job_id
-    ORDER BY employee_id;
-    
---hr.jobs, hr.employees, hr.departments
-SELECT employee_id, first_name, last_name, job_title, department_name
-    FROM hr.jobs j 
-    INNER JOIN hr.employees e ON j.job_id = e.job_id
-    INNER JOIN hr.departments d ON e.department_id = d.department_id
-    --WHERE 일반조건식
-    ORDER BY employee_id;
-    
-    
---hr.jobs, hr.employees, hr.departments
-SELECT employee_id, first_name, last_name, job_title, department_name
-    FROM hr.jobs j, hr.employees e, hr.departments d
-    WHERE j.job_id = e.job_id
-    AND e.department_id = d.department_id
-    --AND 일반조건식
-    ORDER BY employee_id;
-
-
---문제031) hr 계정(소유자)의 employees, departments 테이블의 정보에서 
---부서아이디, 부서명 및 부서장의 개인정보(직원아이디, 이름)를 같이 출력하는 쿼리 작성. INNER JOIN 사용.
-
---ANSI 표기법
-
-    
---Oracle 표기법
-
-
-
---문제032) hr 계정(소유자)의 employees, departments, locations, countries, regions 테이블의 정보에서 
---직원 정보(직원아이디, 이름, 부서명, 부서위치)를 출력하는 쿼리 작성. INNER JOIN 사용.
-
---ANSI 표기법
-
-    
---Oracle 표기법
-
-
-
-------------------------
