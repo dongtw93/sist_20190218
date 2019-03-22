@@ -325,7 +325,16 @@ SELECT employee_id, department_id, last_name, salary, job_id,
      WHERE REGEXP_LIKE (job_id, '_CLERK$');
 
 
-  
+
+-----------------------------------
+--SUM()과  SUM() OVER()의 차이
+SELECT employee_id, first_name
+    , salary, SUM(salary) "TOTAL_SAL"
+    FROM hr.employees;
+
+SELECT employee_id, first_name
+    , salary, SUM(salary) OVER() "TOTAL_SAL"
+    FROM hr.employees;
   
   
 ------------------------------
