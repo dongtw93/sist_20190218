@@ -39,11 +39,21 @@ SELECT hr.departments.department_id, department_name, employee_id, first_name
 SELECT hr.departments.department_id, department_name, employee_id, first_name
     FROM hr.departments, hr.employees
     WHERE hr.departments.department_id = hr.employees.department_id;
+   
     
 --Alias 적용
 SELECT d.department_id, department_name, employee_id, first_name
     FROM hr.departments d, hr.employees e
     WHERE d.department_id = e.department_id;
+ 
+    
+    
+--Alias 적용
+SELECT d.department_id, department_name, employee_id, first_name
+    FROM hr.departments d INNER JOIN hr.employees e
+    ON d.department_id = e.department_id; 
+    
+    
     
     
 --hr.jobs, hr.employees 
@@ -51,6 +61,14 @@ SELECT employee_id, first_name, last_name, job_title
     FROM hr.jobs j, hr.employees e
     WHERE j.job_id = e.job_id
     ORDER BY employee_id;
+   
+    
+--hr.jobs, hr.employees 
+SELECT employee_id, first_name, last_name, job_title
+    FROM hr.jobs j INNER JOIN hr.employees e
+    ON j.job_id = e.job_id
+    ORDER BY employee_id;
+    
     
 --hr.jobs, hr.employees, hr.departments
 SELECT employee_id, first_name, last_name, job_title, department_name
@@ -68,27 +86,62 @@ SELECT employee_id, first_name, last_name, job_title, department_name
     AND e.department_id = d.department_id
     --AND 일반조건식
     ORDER BY employee_id;
+    
+--hr.jobs, hr.employees, hr.departments
+SELECT employee_id, first_name, last_name, job_title, department_name
+    FROM hr.jobs j, hr.employees e, hr.departments d
+    WHERE j.job_id = e.job_id
+    AND e.department_id = d.department_id
+    AND department_name = 'IT' 
+    ORDER BY employee_id;    
 
 
 --문제031) hr 계정(소유자)의 employees, departments 테이블의 정보에서 
---부서아이디, 부서명 및 부서장의 개인정보(직원아이디, 이름)를 같이 출력하는 쿼리 작성. INNER JOIN 사용.
+--부서아이디, 부서명 및 부서장의 개인정보(직원아이디, 이름, 전화번호)를 같이 출력하는 쿼리 작성. 
+--INNER JOIN 사용.
 
 --ANSI 표기법
-
+SELECT d.department_id, department_name, d.manager_id, first_name, phone_number
+    FROM hr.departments d INNER JOIN hr.employees e 
+    ON d.manager_id = e.employee_id;
     
 --Oracle 표기법
+SELECT d.department_id, department_name, d.manager_id, first_name, phone_number 
+    FROM hr.departments d, hr.employees e 
+    WHERE d.manager_id = e.employee_id; 
 
 
 
 --문제032) hr 계정(소유자)의 employees, departments, locations, countries, regions 테이블의 정보에서 
---직원 정보(직원아이디, 이름, 부서명, 부서위치)를 출력하는 쿼리 작성. INNER JOIN 사용.
+--직원 정보(직원아이디, 이름, 부서명, 부서위치)를 출력하는 쿼리 작성. 
+--INNER JOIN 사용.
 
 --ANSI 표기법
-
+SELECT employee_id, first_name, last_name, d.department_name, l.city, c.country_name, r.region_name
+    FROM hr.employees e
+    INNER JOIN hr.departments d ON e.department_id = d.department_id
+    INNER JOIN hr.locations l ON d.location_id = l.location_id
+    INNER JOIN hr.countries c ON l.country_id = c.country_id
+    INNER JOIN hr.regions r ON c.region_id = r.region_id;
     
 --Oracle 표기법
+SELECT employee_id, first_name, last_name, d.department_name, l.city, c.country_name, r.region_name
+    FROM hr.employees e ,hr.departments d, hr.locations l, hr.countries c ,hr.regions r
+    WhERE e.department_id = d.department_id
+    AND d.location_id = l.location_id
+    AND l.country_id = c.country_id
+    AND c.region_id = r.region_id;
 
 
+
+
+----------------------------
+-- Non-Equi Join
+-- =(equal)이 아닌 연산자(>, <, >=, <=)를 사용하는 조인 방법
+SELECT employee_id, first_name, phone_number, job_title
+    FROM hr.employees e, hr.jobs j
+    WHERE e.job_id = j.job_id 
+    AND j.job_title IN ('Stock Manager', 'Stock Clerk', 'Shipping Clerk');
 
 
 
@@ -99,8 +152,7 @@ LEFT JOIN (OUTER JOIN)
 
 ANSI 표기법
     SELECT table1.column1, table2.column2...
-    FROM table1
-    LEFT JOIN table2
+    FROM table1  LEFT OUTER JOIN table2
     ON table1.common_field = table2.common_field;
     
 Oracle 표기법
@@ -110,6 +162,11 @@ Oracle 표기법
 
 */
 
+--ANSI 표기법
+SELECT d.department_id, department_name, d.manager_id, employee_id, first_name, last_name
+    FROM hr.departments d LEFT OUTER JOIN hr.employees e
+    ON d.department_id = e.department_id;
+    
 --ANSI 표기법
 SELECT d.department_id, department_name, d.manager_id, employee_id, first_name, last_name
     FROM hr.departments d LEFT JOIN hr.employees e
@@ -132,7 +189,6 @@ SELECT  employee_id, first_name, last_name, d.department_id, department_name, d.
     WHERE e.department_id = d.department_id(+);
 
 
-
 SELECT d.department_id, department_name, d.manager_id, employee_id, first_name, last_name
     FROM hr.departments d LEFT JOIN hr.employees e
     ON d.manager_id = e.employee_id;
@@ -142,13 +198,20 @@ SELECT d.department_id, department_name, d.manager_id, employee_id, first_name, 
     WHERE d.manager_id = e.employee_id(+);
 
 
+
 --문제033) hr 계정(소유자)의 jobs, employees 테이블의 정보에서 
---직위 정보를 기준으로 직원 정보를 같이 출력하는 쿼리 작성. LEFT JOIN 사용.
+--직위 정보를 기준으로 직원 정보를 같이 출력하는 쿼리 작성. 
+--LEFT JOIN 사용.
 
 --ANSI 표기법
-
+SELECT j.job_id, job_title, min_salary, max_salary, e.employee_id, first_name, last_name
+    FROM hr.jobs j LEFT JOIN hr.employees e
+    ON j.job_id = e.job_id;
 
 --Oracle 표기법
+SELECT j.job_id, job_title, min_salary, max_salary, e.employee_id, first_name, last_name
+    FROM hr.jobs j, hr.employees e
+    WHERE j.job_id = e.job_id(+);
 
 
 
@@ -157,11 +220,17 @@ SELECT d.department_id, department_name, d.manager_id, employee_id, first_name, 
 --직원 정보를 기준으로 부서, 직위 변동 정보를 같이 출력하는 쿼리 작성. LEFT JOIN 사용.
 
 --ANSI 표기법
-
+SELECT e.employee_id, first_name, last_name, e.job_id, jh.job_id, jh.start_date, jh.end_date
+    FROM hr.employees e LEFT JOIN hr.job_history jh
+    ON e.employee_id = jh.employee_id
+    ORDER BY e.employee_id;
     
     
 --Oracle 표기법
-
+SELECT e.employee_id, first_name, last_name, e.job_id, jh.job_id, jh.start_date, jh.end_date
+    FROM hr.employees e, hr.job_history jh
+    WHERE e.employee_id = jh.employee_id(+)
+    ORDER BY e.employee_id;
 
 
 ----------------------------------
@@ -169,10 +238,16 @@ SELECT d.department_id, department_name, d.manager_id, employee_id, first_name, 
 --first_name 'Neena', last_name 'Kochhar' 직원의 직무명(job_title)까지 출력. INNER JOIN 사용.
 
 --ANSI 표기법
-
+SELECT e.employee_id, first_name, last_name, job_title
+    FROM hr.employees e
+        INNER JOIN hr.jobs j ON e.job_id = j.job_id
+    WHERE first_name = 'Neena' AND last_name = 'Kochhar';
     
 --Oracle 표기법
-
+SELECT e.employee_id, first_name, last_name, job_title
+    FROM hr.employees e, hr.jobs j
+    WHERE e.job_id = j.job_id
+        AND first_name = 'Neena' AND last_name = 'Kochhar';
 
 
 
@@ -182,19 +257,34 @@ SELECT d.department_id, department_name, d.manager_id, employee_id, first_name, 
 --3명
 
 --ANSI 표기법
-
+SELECT e.employee_id, first_name, last_name, job_title, min_salary, salary
+    FROM hr.employees e
+        INNER JOIN hr.jobs j ON e.job_id = j.job_id
+    WHERE j.min_salary = e.salary;
     
 --Oracle 표기법
-
+SELECT e.employee_id, first_name, last_name, job_title, min_salary, salary
+    FROM hr.employees e, hr.jobs j
+    WHERE e.job_id = j.job_id 
+    AND j.min_salary = e.salary;
 
 
 --문제037) hr 계정(소유자)의 employees, jobs 테이블의 정보에서
 --직위명(job_title)별 직원의 수 출력.  INNER JOIN 사용.
 
 --ANSI 표기법
-
+SELECT job_title, COUNT(job_title) "COUNT"
+    FROM hr.employees e
+        INNER JOIN hr.jobs j ON e.job_id = j.job_id
+    GROUP BY job_title
+    ORDER BY job_title;
     
 --Oracle 표기법
+SELECT job_title, COUNT(job_title) "COUNT"
+    FROM hr.employees e, hr.jobs j
+    WHERE e.job_id = j.job_id
+    GROUP BY job_title
+    ORDER BY job_title;
 
 
 --문제038)  hr 계정(소유자)의 employees, departments 테이블의 정보에서 
@@ -202,146 +292,21 @@ SELECT d.department_id, department_name, d.manager_id, employee_id, first_name, 
 --부서명(department_name), 부서장(manager)이름(first_name, last_name) 출력.  INNER JOIN 사용.
 
 --ANSI 표기법
-
+SELECT e1.employee_id, e1.first_name, e1.last_name, department_name
+    , e2.employee_id, e2.first_name, e2.last_name
+    FROM hr.employees e1
+        INNER JOIN hr.departments d ON e1.department_id = d.department_id
+        INNER JOIN hr.employees e2 ON d.manager_id = e2.employee_id
+    WHERE e1.first_name='David' AND e1.last_name='Austin';
 
 --Oracle 표기법
-
+SELECT e1.employee_id, e1.first_name, e1.last_name, department_name
+    , e2.employee_id, e2.first_name, e2.last_name
+    FROM hr.employees e1, hr.departments d, hr.employees e2
+    WHERE e1.department_id = d.department_id
+        AND d.manager_id = e2.employee_id
+        AND e1.first_name='David' AND e1.last_name='Austin';
         
 
 
-------------------------
-/*
-SELF JOIN : Alias 지정 필수
 
-ANSI 표기법
-    SELECT a.column_name, b.column_name...
-    FROM table1 a INNER JOIN table1 b
-    ON a.common_field = b.common_field;
-
-
-Oracle 표기법
-    SELECT a.column_name, b.column_name...
-    FROM table1 a, table1 b
-    WHERE a.common_field = b.common_field;
-*/
-
-
---hr.employees e1, hr.employees e2
-SELECT e2.first_name, e2.last_name, e2.salary, e2.department_id, e2.job_id, e2.hire_date
-    FROM hr.employees e1 INNER JOIN hr.employees e2
-    ON e1.salary = e2.salary
-    WHERE e1.first_name='David' AND e1.last_name='Austin';
-
---hr.employees e1, hr.employees e2
-SELECT e2.first_name, e2.last_name, e2.salary, e2.department_id, e2.job_id, e2.hire_date
-    FROM hr.employees e1, hr.employees e2
-    WHERE e1.salary = e2.salary
-    AND e1.first_name='David' AND e1.last_name='Austin';
-    
-    
-    
---hr.employees e1, hr.employees e2
-SELECT e2.first_name, e2.last_name, e2.salary, e2.department_id, e2.job_id, e2.hire_date
-    FROM hr.employees e1 INNER JOIN hr.employees e2
-    ON e1.department_id = e2.department_id
-    WHERE e1.first_name='David' AND e1.last_name='Austin';    
-    
---hr.employees e1, hr.employees e2
-SELECT e2.first_name, e2.last_name, e2.salary, e2.department_id, e2.job_id, e2.hire_date
-    FROM hr.employees e1, hr.employees e2
-    WHERE e1.department_id = e2.department_id
-    AND e1.first_name='David' AND e1.last_name='Austin';
-
-
---hr.employees e1, hr.employees e2
-SELECT e2.first_name, e2.last_name, e2.salary, e2.department_id, e2.job_id, e2.hire_date
-    FROM hr.employees e1, hr.employees e2
-    WHERE e1.department_id = e2.department_id
-    AND e1.hire_date <= e2.hire_date
-    AND e1.first_name='Valli' AND e1.last_name='Pataballa';
-
-
-
---문제039)  hr 계정(소유자)의 employees 테이블의 정보에서 
---first_name 'Donald', last_name 'OConnell'과 직위아이디(job_id)가 같은 직원 정보 출력하는 쿼리 작성. SELF JOIN 사용.
-
---ANSI 표기법
-
-
---Oracle 표기법
-
-
---문제040)  hr 계정(소유자)의 employees, jobs 테이블의 정보에서 
---first_name 'Donald', last_name 'OConnell'과 직위명(job_title)가 같은 직원 정보 출력하는 쿼리 작성. SELF JOIN 사용.
-
---ANSI 표기법
-
-
---Oracle 표기법
-
-
-----------------------
-/*
-CARTESIAN JOIN(or CROSS JOIN)
-
-ANSI 표기법
-    SELECT table1.column1, table2.column2...
-    FROM  table1 CROSS JOIN table2;
-
-Oracle 표기법
-    SELECT table1.column1, table2.column2...
-    FROM  table1, table2;
-
-*/
-
---hr.departments, hr.employees 
-SELECT hr.departments.department_id, department_name, employee_id, first_name
-    FROM hr.departments CROSS JOIN hr.employees;
-
-
---hr.departments, hr.employees 
-SELECT hr.departments.department_id, department_name, employee_id, first_name
-    FROM hr.departments, hr.employees;
-    
-    
-    
-    
-----------------------
-/*
-FULL JOIN
-
-ANSI 표기법
-    SELECT table1.column1, table2.column2...
-    FROM table1 FULL JOIN table2
-    ON table1.common_field = table2.common_field;
-
-주의) Oracle 표기법에서는 FULL JOIN 지원 안함
-*/
-
---ANSI 표기법
-SELECT d.department_id, department_name, employee_id, first_name
-    FROM hr.departments d FULL JOIN hr.employees e
-    ON d.department_id = e.department_id;
-    
---ORA-01468: a predicate may reference only one outer-joined table 
-SELECT d.department_id, department_name, employee_id, first_name
-    FROM hr.departments d, hr.employees e
-    WHERE d.department_id(+) = e.department_id(+);
-
-
-
---------------------------
---문제041) hr 계정(소유자)의 employees 테이블의 정보에서  
---first_name 'Steven', last_name 'King' 직원의 부하 직원 출력. 
-
-
---문제042) hr 계정(소유자)의 employees, jobs, job_history 테이블의 정보에서  
---employee_id가 101인 직원의 잡히스토리(first_name, last_name, start_date, end_date, job_title) 출력.
-
-
---문제043) hr 계정(소유자)의 employees 테이블의 정보에서 
---부하 직원이 없는 직원 출력.
-
-
---문제044) hr 계정(소유자)의 employees 테이블의 정보에서 
---first_name 'Gerald', last_name 'Cambrault'의 salary보다 급여를 더 많이 받는 직원 정보 출력.
