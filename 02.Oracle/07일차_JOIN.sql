@@ -346,19 +346,32 @@ SELECT employee_id, first_name, last_name, salary
                         
 --문제047) hr 계정(소유자)의 employees 테이블의 정보에서  
 --first_name이 'Donald', last_name이 'OConnell'인 직원의 급여(salary)와 같은 급여 받는 직원 정보 출력.  Sub Query 사용.
-
+SELECT  employee_id, first_name, last_name, salary
+    FROM hr.employees
+    WHERE salary = (SELECT salary FROM hr.employees
+                        WHERE first_name='Donald' AND last_name='OConnell');
+    
                         
 --문제048) hr 계정(소유자)의 employees 테이블의 정보에서 
 --first_name 'Gerald', last_name 'Cambrault'의 salary보다 급여를 더 많이 받는 직원 정보 출력. Sub Query 사용.
-
+SELECT  employee_id, first_name, last_name, salary
+    FROM hr.employees
+    WHERE salary > (SELECT salary FROM hr.employees
+                        WHERE first_name='Gerald' AND last_name='Cambrault');
                         
                         
 --문제049) hr 계정(소유자)의 employees 테이블의 정보에서  
 --first_name이 'Donald', last_name이 'OConnell'인 직원의 입사일(hire_date)와 같은 입사일인 직원 정보 출력.  Sub Query 사용.
-
+SELECT  employee_id, first_name, last_name, hire_date
+    FROM hr.employees
+    WHERE hire_date = (SELECT hire_date FROM hr.employees
+                        WHERE first_name='Donald' AND last_name='OConnell');
                        
 --문제050) hr 계정(소유자)의 employees 테이블의 정보에서  
 --first_name 'Steven', last_name 'King' 직원의 부하 직원 출력.  Sub Query 사용.
-
+SELECT  employee_id, first_name, last_name, hire_date
+    FROM hr.employees
+    WHERE manager_id = (SELECT employee_id FROM hr.employees
+                        WHERE first_name='Steven' AND last_name='King');
                        
                   
