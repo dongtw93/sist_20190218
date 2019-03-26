@@ -375,3 +375,9 @@ SELECT  employee_id, first_name, last_name, hire_date
                         WHERE first_name='Steven' AND last_name='King');
                        
                   
+--추가문제) hr 계정(소유자)의 employees 테이블의 정보에서  
+--first_name 'Steven', last_name 'King' 직원의 같은 부서 부하 직원 출력.  Sub Query 사용.
+SELECT  employee_id, first_name, last_name, hire_date
+    FROM hr.employees
+    WHERE (department_id, manager_id) IN (SELECT department_id, employee_id FROM hr.employees
+                        WHERE first_name='Steven' AND last_name='King');
