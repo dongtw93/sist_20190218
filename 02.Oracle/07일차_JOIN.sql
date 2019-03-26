@@ -158,20 +158,47 @@ SELECT d.department_id, department_name, employee_id, first_name
 --문제041) hr 계정(소유자)의 employees 테이블의 정보에서  
 --first_name 'Steven', last_name 'King' 직원의 부하 직원 출력. 
 
+SELECT e2.employee_id, e2.first_name, e2.last_name, e2.department_id, e2.job_id, e2.manager_id
+    FROM hr.employees e1 
+    INNER JOIN hr.employees e2 ON e1.employee_id = e2.manager_id
+    WHERE e1.first_name = 'Steven' AND e1.last_name = 'King';
+    
+SELECT e2.employee_id, e2.first_name, e2.last_name, e2.department_id, e2.job_id, e2.manager_id
+    FROM hr.employees e1, hr.employees e2 
+    WHERE e1.employee_id = e2.manager_id
+    AND e1.first_name = 'Steven' AND e1.last_name = 'King';
+    
 
 --문제042) hr 계정(소유자)의 employees, jobs, job_history 테이블의 정보에서  
 --employee_id가 101인 직원의 잡히스토리(first_name, last_name, start_date, end_date, job_title) 출력.
 
+SELECT e.employee_id, first_name, last_name, start_date, end_date, job_title
+    FROM hr.employees e, hr.job_history jh, hr.jobs jo
+    WHERE e.employee_id = jh.employee_id
+    AND jh.job_id = jo.job_id
+    AND e.employee_id = 101;
+    
 
 --문제043) hr 계정(소유자)의 employees 테이블의 정보에서 
 --부하 직원이 없는 직원 출력.
+    
+SELECT e1.employee_id, e1.first_name, e1.last_name, e1.job_id, e2.employee_id
+    FROM hr.employees e1, hr.employees e2
+    WHERE e1.employee_id = e2.manager_id(+)
+    AND e2.employee_id IS NULL;
 
+    
 
 --문제044) hr 계정(소유자)의 employees 테이블의 정보에서 
 --first_name 'Gerald', last_name 'Cambrault'의 salary보다 급여를 더 많이 받는 직원 정보 출력.
 
+SELECT e2.first_name, e2.last_name, e2.salary, e2.department_id, e2.job_id
+    FROM hr.employees e1, hr.employees e2
+    WHERE e1.department_id = e2.department_id
+    AND e1.salary <= e2.salary
+    AND e1.first_name='Gerald' AND e1.last_name='Cambrault';
 
-
+ 
 
 
 
